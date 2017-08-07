@@ -5,22 +5,38 @@
 
       <ul>
         <li>
-          <div class="category">
-            <h5>Nature</h5>
-          </div>
+          <h5 class="category">Nature</h5>
           <img src="../assets/images/IMG_4992.jpg">
         </li>
 
         <li>
+          <h5 class="category">Portraits</h5>
           <img src="../assets/images/IMG_4215.jpg">
         </li>
 
         <li>
+          <h5 class="category">Travel</h5>
           <img src="../assets/images/IMG_3946.jpg">
         </li>
 
         <li>
           <img src="../assets/images/IMG_3812-2.jpg">
+        </li>
+
+        <li>
+          <img src="../assets/images/IMG_4917.jpg">
+        </li>
+
+        <li>
+          <img src="../assets/images/IMG_4812.jpg">
+        </li>
+
+        <li>
+          <img src="../assets/images/IMG_4500.jpg">
+        </li>
+
+        <li>
+          <img src="../assets/images/IMG_4473.jpg">
         </li>
 
       </ul>
@@ -32,60 +48,105 @@
 </template>
 
 <script>
-// export default {
-//   name: 'Home',
-//   data () {
-//     return {
-//       msg: 'Welcome to Your Vue.js App'
-//     }
-//   }
-// }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-
-
+ul {
+    // max-width: 900px;
+    margin: 0 auto; /*center aligned*/
+    padding: 0;
+    font-size: 0; /* Remember to change it back to normal font size if have captions */
+    list-style: none;
+    // background-color:#000;
+}
+ul li {
+    display: inline-block;
+    // *display:inline;/*for IE6 - IE7*/
+    width: 25%;
+    vertical-align:middle;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+        
+/* The wrapper for each item */
 li {
-  list-style-type: none;
-  display: inline-block;
-  // flex-direction: column;
-  background-color: black;
-  max-height: 300px;
-
+    /*margin:12px;
+    box-shadow:0 0 6px rgba(0,0,0,0.3);*/
+    display:block;
+    position: relative;
+    overflow:hidden;
 }
-
-.category {
-  z-index:100;
-  // display: none;
-  position: absolute;
-  // width: 300px;
-  text-align: center;
-  font-size: 40px;
-  color: white;
-}
-
-h5 {
-  text-align: center;
-  Font-Family: 'Work Sans', Sans-Serif;
-  Font-Size: 45px;
-}
-
+        
+/* If have the image layer */
 img {
-  max-width: 300px;
-  // background-color: black;
-  opacity: 0.9;
-  transition: 0.3s linear;
+    display:block;
+    width: 100%;
+    height: auto;
+    opacity: 0.95;
+    transition: 0.3s linear;
    -webkit-transition: 0.3s linear;
    -moz-transition: 0.3s linear;
-  
+    // transform:scale(1);
+    // transition:all 1s;
 }
 
-
-
-img:hover {
-  opacity: 1;
+ul li:hover img {
+    transform:scale(1.03);
+    opacity: 1;
 }
+        
+
+/* If have captions */
+.category {
+    display: block;
+    padding: 0 30px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align:center;
+    text-transform:capitalize;
+    font-size: 40px;
+    top:40%;
+    color:white;
+    opacity:0;
+    filter:alpha(opacity=0);/*For older IE*/
+    transform:translateY(-20px);
+    transition:all .3s;
+}
+
+ul li:hover .category {
+    transform:translateY(0px);
+    opacity: 0.9;
+}
+
+@media (max-width: 9000px) {
+    ul li {
+        width: 25%;
+    }
+}
+
+@media (max-width: 1000px) {
+    ul li {
+        width: 33.3%;
+    }
+}
+
+@media (max-width: 600px) {
+    ul li {
+        width: 33.33%;
+    }
+}
+
+@media (max-width: 550px) {
+    ul li {
+        width: 50%;
+    }
+}
+
 
 </style>
