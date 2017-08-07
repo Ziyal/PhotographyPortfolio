@@ -12,6 +12,11 @@
           <li class="navbar-item"><router-link to="/about">About</router-link></li>
           <li class="navbar-item"><router-link to="/contact">Contact</router-link></li>
         </ul>
+        <div class="social-icons">
+          <a href="#"><img src="./assets/social_media/facebook.png" class="icon"></a>
+          <a href="#"><img src="./assets/social_media/instagram.png" class="icon"></a>
+          <a href="#"><img src="./assets/social_media/twitter.png" class="icon"></a>
+        </div>
       </div>
 
 
@@ -39,21 +44,23 @@ export default {
 
 h1 {
   display: inline-block;
-  margin: 10px 0px 0px 15px;
-  padding-top: 10px;
-  width: 40%;
+  margin: 10px 0px 15px 15px;
+  // padding-top: 10px;
+  // font-size: 30px;
+  width: 50%;
   max-width: 500px;
-  font-size: 30px;
   Font-Family: 'Work Sans', Sans-Serif;
 }
 
 .navbar-container {
   display: inline-block;
-  width: 40%;
+  align: right;
+  width: 600px;
+  width: 50%;
 }
 
 .navbar-list {
-  width: 600px;
+  display: inline-block;
   text-align: center;
   list-style-type: none;
   margin: 0;
@@ -65,7 +72,19 @@ h1 {
   margin: 0px 20px 0px 20px;
 }
 
+.social-icons {
+  display: inline-block;
+  // width: 200px;
+  margin-top: 3px;
+}
+
+.icon {
+  width: 18px;
+  margin: 0px 5px 0px 5px;
+}
+
 /* DEFAULTS */
+\
 a {
   color: black;
   text-decoration: none;
@@ -76,9 +95,38 @@ a:hover {
   text-decoration: none;
 }
 
+@media (max-width: 4000px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 16px;
+  }
+}
+
 * {
   Font-Family: 'Open Sans', Sans-Serif;
   Font-Size: 15px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
 }
 
 h2, h3, h4, h6 {
@@ -86,3 +134,42 @@ h2, h3, h4, h6 {
   Font-Size: 45px;
 }
 </style>
+
+
+li {
+  list-style-type: none;
+  display: inline-block;
+  // flex-direction: column;
+  background-color: black;
+  max-height: 300px;
+  margin: 0px;
+}
+
+.category {
+  z-index:100;
+  // display: none;
+  position: absolute;
+  // width: 300px;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+
+h5 {
+  text-align: center;
+  Font-Family: 'Work Sans', Sans-Serif;
+  Font-Size: 45px;
+}
+
+img {
+  max-width: 300px;
+  // background-color: black;
+  opacity: 0.9;
+  transition: 0.3s linear;
+   -webkit-transition: 0.3s linear;
+   -moz-transition: 0.3s linear;
+}
+
+img:hover {
+  opacity: 1;
+}

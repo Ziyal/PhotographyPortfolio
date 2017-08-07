@@ -1,6 +1,8 @@
 <template>
   <div class="Home">
 
+    <img src='../assets/images/header.jpg' alt="Lake Coeur d'Alene">
+
     <div class="photos">
 
       <ul>
@@ -42,7 +44,9 @@
       </ul>
     </div>
 
-    <h2><router-link to="/admin">Admin Page</router-link></h2>
+    <img src='../assets/images/party.jpg' alt="Photobooth">
+
+    <!--<h2><router-link to="/admin">Admin Page</router-link></h2>-->
     
   </div>
 </template>

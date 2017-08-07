@@ -1,12 +1,13 @@
 <template>
   <div class="admin">
-    <h1>Admin Login</h1>
 
+    <div class="login-container">
       <form action="/login" method="post" role="form" @submit.prevent="sub()">
-        <p>Email: </p><input type="email" name="email" v-model="user.email">
-        <p>Password: </p><input type="password" name="password" v-model="user.password"><br>
-        <input type="submit" value="login">
+        <input type="email" name="email" v-model="user.email" placeholder="Email">
+        <input type="password" name="password" v-model="user.password" placeholder="Password"><br>
+        <input type="submit" value="LOGIN" class="submit-btn">
       </form>
+    </div>
 
   </div>
 </template>
@@ -35,11 +36,9 @@ export default {
         axios.post('http://localhost:3000/login', user)
           .then(function() {
             // router.go('/dashboard')
+            this.$router.push({path: "/dashboard"})
           })
           .catch(err => console.log(err))
-
-        // this.user.email = "";
-        // this.user.password = "";
 
       }
     }
@@ -48,6 +47,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.admin {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
 
+.login-container {
+  margin-top: 40px;
+  display: inline-block;
+  // width: 200px;
+}
+
+.submit-btn {
+  width: 204px;
+}
+
+input {
+  width: 200px;
+  margin-top:5px;
+}
 
 </style>
