@@ -5,13 +5,17 @@ import App from './App'
 import router from './router'
 import vueResource from 'vue-resource';
 import axios from 'axios';
+import BootstrapVue from 'bootstrap-vue';
 
-
+Vue.use(BootstrapVue);
 Vue.use(vueResource);
 
-Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk'
-// Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:3000'
-// Vue.http.headers.common['Access-Control-Request-Method'] = '*'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk'
+// // Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+// // Vue.http.headers.common['Access-Control-Request-Method'] = '*'
 
 
 Vue.config.productionTip = false

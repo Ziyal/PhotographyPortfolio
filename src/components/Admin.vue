@@ -54,7 +54,7 @@ export default {
 }
 
 .login-container {
-  margin-top: 40px;
+  margin-top: 80px;
   display: inline-block;
   // width: 200px;
 }

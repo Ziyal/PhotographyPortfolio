@@ -16,8 +16,17 @@ var UsersSchema = new mongoose.Schema({
     password: {type: String, required: true}
 })
 
+var AlbumsSchema = new mongoose.Schema({
+  title: {type: String, required: true},
+  description: {type: String, required: true},
+  category: {type: String, required: true}
+})
+
 mongoose.model("Users", UsersSchema);
 var Users = mongoose.model("Users");
+
+mongoose.model("Albums", AlbumsSchema);
+var Albums = mongoose.model("Albums");
 
 // ***********************************
 
@@ -53,17 +62,43 @@ app.post('/login', function(req, res) {
             res.status(500).json({'error': "Invalid Login"})
         }
     }    
-  })
+  });
+});
 
-  app.get('/check_status', function(req, res) {
-    res.json({user: req.session.user});
-  })
+app.get("/display_albums", function(req, res) {
+
+  Albums.find({})
+    .then(albums => { 
+      console.log(albums)
+      res.json(albums) 
+    })
+    .catch(err => {
+        console.log("Find All Error", err)
+        res.status(500).json(err);
+    }) 
+});
+
+
+app.post('/create_album', function(req, res) {
+
+  var album = new Albums(req.body)
+  album.save()
+    .then(() => {
+      console.log("Album added to DB");
+      res.json(true);
+    })
+
+  console.log(req.body)
+});
+
+app.get('/check_status', function(req, res) {
+  res.json({user: req.session.user});
+});
 
   // var user = new Users({email: "wintermist3@gmail.com", password: "password", name: "Sereina"})
   // user.save(function(err)
   // });
 
-})
 
 app.get('*', function (req, res) {
   return res.sendFile('../index.html');

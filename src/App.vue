@@ -19,9 +19,7 @@
         </div>
       </div>
 
-
     </div>
-
 
     <router-view></router-view>
   </div>
@@ -35,9 +33,19 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:300');
+
+.header {
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  z-index: 10001;
+  width: 100%;
+}
+
 #navbar-container {
   display: inline-block;
   margin: 0 auto;
+  text-align: right;
 }
 
 /* HEADER */
@@ -54,7 +62,7 @@ h1 {
 
 .navbar-container {
   display: inline-block;
-  align: right;
+  right: 0px;
   width: 600px;
   width: 50%;
 }
@@ -84,7 +92,6 @@ h1 {
 }
 
 /* DEFAULTS */
-\
 a {
   color: black;
   text-decoration: none;
@@ -129,47 +136,4 @@ body {
   padding: 0px;
 }
 
-h2, h3, h4, h6 {
-  Font-Family: 'Work Sans', Sans-Serif;
-  Font-Size: 45px;
-}
 </style>
-
-
-li {
-  list-style-type: none;
-  display: inline-block;
-  // flex-direction: column;
-  background-color: black;
-  max-height: 300px;
-  margin: 0px;
-}
-
-.category {
-  z-index:100;
-  // display: none;
-  position: absolute;
-  // width: 300px;
-  text-align: center;
-  font-size: 50px;
-  color: white;
-}
-
-h5 {
-  text-align: center;
-  Font-Family: 'Work Sans', Sans-Serif;
-  Font-Size: 45px;
-}
-
-img {
-  max-width: 300px;
-  // background-color: black;
-  opacity: 0.9;
-  transition: 0.3s linear;
-   -webkit-transition: 0.3s linear;
-   -moz-transition: 0.3s linear;
-}
-
-img:hover {
-  opacity: 1;
-}

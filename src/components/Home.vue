@@ -1,5 +1,5 @@
 <template>
-  <div class="Home">
+  <div class="home">
 
     <img src='../assets/images/header.jpg' alt="Lake Coeur d'Alene">
 
@@ -58,53 +58,51 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.home {
+  background-color: black;
+}
+
 ul {
-    // max-width: 900px;
-    margin: 0 auto; /*center aligned*/
+    margin: 0 auto;
     padding: 0;
     font-size: 0; /* Remember to change it back to normal font size if have captions */
     list-style: none;
-    // background-color:#000;
 }
+
 ul li {
     display: inline-block;
-    // *display:inline;/*for IE6 - IE7*/
+    // *display: inline;/*for IE6 - IE7*/
     width: 25%;
-    vertical-align:middle;
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
         
 /* The wrapper for each item */
 li {
-    /*margin:12px;
-    box-shadow:0 0 6px rgba(0,0,0,0.3);*/
-    display:block;
+    display: block;
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
 }
         
-/* If have the image layer */
+/* If image layer */
 img {
-    display:block;
+    display: block;
     width: 100%;
     height: auto;
     opacity: 0.95;
     transition: 0.3s linear;
    -webkit-transition: 0.3s linear;
    -moz-transition: 0.3s linear;
-    // transform:scale(1);
-    // transition:all 1s;
 }
 
 ul li:hover img {
     transform:scale(1.03);
     opacity: 1;
 }
-        
 
-/* If have captions */
+/* If captions */
 .category {
     display: block;
     padding: 0 30px;
@@ -112,20 +110,20 @@ ul li:hover img {
     position: absolute;
     left: 0;
     width: 100%;
-    text-align:center;
-    text-transform:capitalize;
+    text-align: center;
+    // text-transform: capitalize;
     font-size: 40px;
-    top:40%;
-    color:white;
-    opacity:0;
-    filter:alpha(opacity=0);/*For older IE*/
-    transform:translateY(-20px);
-    transition:all .3s;
+    top: 25%;
+    color: white;
+    opacity: 0;
+    // filter: alpha(opacity=0); /*For older IE*/
+    // transform: translateY(-20px);
+    // transition: all .3s;
 }
 
 ul li:hover .category {
-    transform:translateY(0px);
-    opacity: 0.9;
+    // transform: translateY(0px);
+    opacity: 1;
 }
 
 @media (max-width: 9000px) {
