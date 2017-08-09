@@ -29,7 +29,8 @@ export default new Router({
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: Dashboard
+      component: Dashboard,
+      props: true
     },
     {
       path: '/album_admin/:id',
@@ -44,7 +45,8 @@ export default new Router({
     {
       path: '/delete_album/:id',
       name: 'DeleteAdmin',
-      component: DeleteAdmin
+      component: DeleteAdmin,
+      props: true
     }
   ]
 })

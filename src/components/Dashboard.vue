@@ -60,11 +60,13 @@ export default {
     created: function() {
       this.DisplayAlbums();
     },
+    // props: {
+    //   album_id: this.album._id
+    // },
     methods: {
       DisplayAlbums() {
         axios.get('http://localhost:3000/display_albums')
           .then(response =>  {
-            console.log("Albums found: ", response.data);
             this.all_albums = response.data;
           })
           .catch(err => console.log(err))

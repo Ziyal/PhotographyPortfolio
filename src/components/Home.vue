@@ -4,41 +4,60 @@
     <img src='../assets/images/header.jpg' alt="Lake Coeur d'Alene">
 
     <div class="photos">
-
       <ul>
         <li>
-          <h5 class="category">Nature</h5>
-          <img src="../assets/images/IMG_4992.jpg">
+          <router-link to="/nature">
+            <img src="../assets/images/nature.jpg">
+            <h5 class="category">Nature</h5>
+          </router-link>
         </li>
 
         <li>
-          <h5 class="category">Portraits</h5>
-          <img src="../assets/images/IMG_4215.jpg">
+          <router-link to="/lifestyle">
+            <img src="../assets/images/lifestyle.jpg">
+            <h5 class="category">Lifestyle</h5>
+          </router-link>
         </li>
 
         <li>
-          <h5 class="category">Travel</h5>
-          <img src="../assets/images/IMG_3946.jpg">
+          <router-link to="/events">
+            <img src="../assets/images/event.jpg">
+            <h5 class="category">Events</h5>
+          </router-link>
         </li>
 
         <li>
-          <img src="../assets/images/IMG_3812-2.jpg">
+          <router-link to="/headshots">
+            <img src="../assets/images/headshot.jpg">
+            <h5 class="category">Headshots</h5>
+          </router-link>
         </li>
 
         <li>
-          <img src="../assets/images/IMG_4917.jpg">
+          <router-link to="/family">
+            <img src="../assets/images/family.jpg">
+            <h5 class="category">Family</h5>
+          </router-link>
         </li>
 
         <li>
-          <img src="../assets/images/IMG_4812.jpg">
+          <router-link to="/travel">
+            <img src="../assets/images/travel.jpg">
+            <h5 class="category">Travel</h5>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/portraits">
+            <img src="../assets/images/portrait.jpg">
+            <h5 class="category">Portraits</h5>
+          </router-link>
         </li>
 
         <li>
-          <img src="../assets/images/IMG_4500.jpg">
-        </li>
-
-        <li>
-          <img src="../assets/images/IMG_4473.jpg">
+          <router-link to="/other">
+            <img src="../assets/images/other.jpg">
+            <h5 class="category">Other</h5>
+          </router-link>
         </li>
 
       </ul>
@@ -65,7 +84,7 @@
 ul {
     margin: 0 auto;
     padding: 0;
-    font-size: 0; /* Remember to change it back to normal font size if have captions */
+    font-size: 0; /* Remember to change it back to normal font size if using captions */
     list-style: none;
 }
 
@@ -98,31 +117,27 @@ img {
 }
 
 ul li:hover img {
-    transform:scale(1.03);
+    transform:scale(1.02);
     opacity: 1;
 }
 
-/* If captions */
+/* Captions */
 .category {
+    Font-Family: 'Work Sans', Sans-Serif;
     display: block;
-    padding: 0 30px;
-    box-sizing: border-box;
     position: absolute;
     left: 0;
     width: 100%;
     text-align: center;
-    // text-transform: capitalize;
     font-size: 40px;
-    top: 25%;
+    top: 40%;
     color: white;
     opacity: 0;
-    // filter: alpha(opacity=0); /*For older IE*/
-    // transform: translateY(-20px);
-    // transition: all .3s;
+    transition: .5s linear;
 }
 
 ul li:hover .category {
-    // transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
 }
 

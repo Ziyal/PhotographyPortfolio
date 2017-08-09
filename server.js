@@ -78,6 +78,28 @@ app.get("/display_albums", function(req, res) {
     }) 
 });
 
+app.get("/find_album/", function(req, res) {
+  Albums.find({_id: req.body.id})
+    .then(album => {
+      console.log(req.body.id)
+      res.json(album)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+});
+
+app.post("/delete_album/:id", function(req, res) {
+  Albums.remove({_id: req.params.id})
+    .then(album => {
+      res.json(album)
+    }) 
+    .catch(error => {
+      console.log(error);
+    })
+});
+
+
 
 app.post('/create_album', function(req, res) {
 

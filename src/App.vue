@@ -19,6 +19,7 @@
         </div>
       </div>
 
+
     </div>
 
     <router-view></router-view>
@@ -34,21 +35,16 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:300');
 
+/************* HEADER *************/
 .header {
   background-color: white;
   position: fixed;
   top: 0px;
   z-index: 10001;
   width: 100%;
+  display: -webkit-flex;
+  display: flex;
 }
-
-#navbar-container {
-  display: inline-block;
-  margin: 0 auto;
-  text-align: right;
-}
-
-/* HEADER */
 
 h1 {
   display: inline-block;
@@ -60,11 +56,11 @@ h1 {
   Font-Family: 'Work Sans', Sans-Serif;
 }
 
-.navbar-container {
+#navbar-container {
   display: inline-block;
-  right: 0px;
-  width: 600px;
-  width: 50%;
+  margin: 0 auto;
+  text-align: right;
+  padding-top: 14px;
 }
 
 .navbar-list {
@@ -91,7 +87,7 @@ h1 {
   margin: 0px 5px 0px 5px;
 }
 
-/* DEFAULTS */
+/*/************* DEFAULTS *************/
 a {
   color: black;
   text-decoration: none;

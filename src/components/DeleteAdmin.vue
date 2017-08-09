@@ -7,7 +7,7 @@
         <input type="submit" value="DELETE">
     </form>
 
-    <button><router-link :to="'dashboard'">Back</router-link></button>
+    <button><router-link :to="{ name: 'Dashboard'}">Back</router-link></button>
 
     
   </div>
@@ -19,28 +19,35 @@ const axios = require('axios');
 export default {
     data: function() {
         return {
+            album: []
         }
     },
+    created: function() {
+        this.FindAlbum();
+    },
     methods: {
-
+        FindAlbum() {
+            var id = { id: this.$route.params.id }
+            axios.get('http://localhost:3000/find_album', id)
+                .then(response => {
+                    console.log("Album Found: ", response.data)
+                    this.album = response.data;
+                })
+                .catch(err => console.log(err))
+        },
         DeleteAlbum() {
-            var album = {
-            title: this.album.title,
-            description: this.album.description,
-            category: this.album.category
-            }
+            var album_id = this.$route.params.id;
             
-            // Sends album data to server
-            axios.post('http://localhost:3000/delete_album/', album_id)
+            // Sends album data to server to delete
+            axios.post('http://localhost:3000/delete_album/' + album_id)
             .then(function() {
                 console.log("Delete Album successful")
             })
             .catch(err => console.log(err))
-        },
-
-
+        }
     }
-}</script>
+}
+</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
