@@ -59,6 +59,7 @@ app.post('/login', function(req, res) {
             console.log("Passwords Match!!!!!!")
             res.json(true)
         } else {
+            console.log("Incorect password")
             res.status(500).json({'error': "Invalid Login"})
         }
     }    

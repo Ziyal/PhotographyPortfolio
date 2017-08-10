@@ -9,6 +9,8 @@
       </form>
     </div>
 
+    <h5 v-if="notifications[0]">{{ notifications[0].msg }}</h5>
+
   </div>
 </template>
 
@@ -23,7 +25,8 @@ export default {
           user: {
             email: '',
             password: ''
-          }
+          },
+          notifications: []
         }
     },
     methods: {
@@ -35,10 +38,17 @@ export default {
         
         axios.post('http://localhost:3000/login', user)
           .then(function() {
+            this.router.push({name: 'Dashboard'})
             // router.go('/dashboard')
-            this.$router.push({path: "/dashboard"})
+            // this.$router.push({path: "/dashboard"})
           })
-          .catch(err => console.log(err))
+          .catch((err) => {
+            console.log(err),
+            this.notifications.push({
+              msg: "Invalid email or password"
+            }),
+            console.log(this.notifications)
+          })
 
       }
     }
