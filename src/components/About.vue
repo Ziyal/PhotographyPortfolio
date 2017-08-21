@@ -2,19 +2,49 @@
   <div class="about">
     <h1>About</h1>
 
-    <img src='../assets/images/sereina-top.jpg' alt="Sereina at Lake Coeur d'Alene"  class="content">
-
     <ul>
+      <li>
+        <img src="../assets/images/sereina2.jpg" class="content">
+      </li>
+
+      <li>
+        <img src="../assets/images/sereina6.jpg" class="content">
+      </li>
+
+      <li>
+        <img src="../assets/images/sereina5.jpg" class="content">
+      </li>
+
+      <li>
+        <img src="../assets/images/sereina7.jpg" class="content">
+      </li>
+
+      <li>
+
+        <p class="text-box">● ● ●</p>
+        <p class="text-box">I'm Sereina. A born a raised in the beautiful Seattle area. Lover of lindy hop, Disney parks, and old black and white movies. Lifestyle and portrait photographer.</p>
+
+        <p class="text-box">My goal is to create natural and authentic photos that represent who you really are. I want to showcase that charming personality you have and display that passion that everyone knows about.</p>
+
+        <p class="text-box">● ● ●</p>
+
+        <!--<p class="text-box bottom-paragraph">I'm really big on candid emotions and try to capture that feeling with my camera. Odds are I'll end up telling bad jokes or acting like a goofball, so if you're down for that kinda action, shoot me an email!</p>-->
+      </li>
+
       <li>
         <img src="../assets/images/sereina1.jpg" class="content">
       </li>
 
       <li>
-        <p class="content">Paragraph about me and lots of cool stuff. It will show people how charming I am. Obviously</p>
+        <img src="../assets/images/sereina3.jpg" class="content">
+      </li>
+      
+      <li>
+        <img src="../assets/images/sereina8.jpg" class="content">
       </li>
 
       <li>
-        <img src="../assets/images/sereina2.jpg" class="content">
+        <img src="../assets/images/sereina4.jpg" class="content">
       </li>
     </ul>
 
@@ -49,6 +79,7 @@ li {
     display: block;
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .content {
@@ -58,6 +89,11 @@ li {
   vertical-align: top;
 }
 
+.text-box {
+    width: 90%;
+    display: inline-block;
+}
+
 @media (max-width: 9000px) {
     ul li {
         width: 33.3%;
@@ -65,14 +101,23 @@ li {
 }
 
 @media (max-width: 1000px) {
-    ul li {
-        width: 33.3%;
+    .text-box {
+        font-size: 13px;
     }
 }
 
+@media (max-width: 900px) {
+    .text-box {
+        font-size: 11px;
+    }
+}
 @media (max-width: 600px) {
     ul li {
         width: 50%;
+    }
+
+    .text-box {
+        width: 100%;
     }
 }
 
