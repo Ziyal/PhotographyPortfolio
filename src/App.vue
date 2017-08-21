@@ -35,6 +35,8 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:300');
 
+
+
 /************* HEADER *************/
 .header {
   background-color: white;

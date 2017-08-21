@@ -22,7 +22,7 @@
       <li>
 
         <p class="text-box">● ● ●</p>
-        <p class="text-box">I'm Sereina. A born a raised in the beautiful Seattle area. Lover of lindy hop, Disney parks, and old black and white movies. Lifestyle and portrait photographer.</p>
+        <p class="text-box">I'm Sereina. Born a raised in the beautiful Seattle area. Lover of lindy hop, Disney parks, and old black and white movies. Lifestyle and portrait photographer.</p>
 
         <p class="text-box">My goal is to create natural and authentic photos that represent who you really are. I want to showcase that charming personality you have and display that passion that everyone knows about.</p>
 

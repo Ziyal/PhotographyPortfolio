@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 
-    <img src='../assets/images/header.jpg' alt="Lake Coeur d'Alene">
+    <img src='../assets/images/header_2.jpg' alt="Portrait" class="large-img">
 
     <div class="photos">
       <ul>
@@ -63,7 +63,7 @@
       </ul>
     </div>
 
-    <img src='../assets/images/party.jpg' alt="Photobooth">
+    <img src='../assets/images/party.jpg' alt="Photobooth" class="large-img">
 
     <!--<h2><router-link to="/admin">Admin Page</router-link></h2>-->
     
@@ -81,6 +81,11 @@
   background-color: black;
 }
 
+.large-img {
+  opacity: 1;
+}
+
+/* ---------- Square Images ---------- */
 ul {
     margin: 0 auto;
     padding: 0;
@@ -157,6 +162,14 @@ ul li:hover .category {
     ul li {
         width: 33.33%;
     }
+
+    ul li img {
+      opacity: 1;
+    }
+
+    ul li .category {
+      opacity: 1;
+    }
 }
 
 @media (max-width: 550px) {
@@ -164,6 +177,5 @@ ul li:hover .category {
         width: 50%;
     }
 }
-
 
 </style>
