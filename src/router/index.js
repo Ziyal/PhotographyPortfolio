@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import Admin from '@/components/Admin'
 import AlbumAdmin from '@/components/AlbumAdmin'
+import EditAdmin from '@/components/EditAdmin'
 import DeleteAdmin from '@/components/DeleteAdmin'
 import Dashboard from '@/components/Dashboard'
 
@@ -37,11 +38,11 @@ export default new Router({
       name: 'AlbumAdmin',
       component: AlbumAdmin
     },
-    // {
-    //   path: '/edit_album',
-    //   name: 'Dashboard',
-    //   component: Dashboard
-    // },
+    {
+      path: '/edit_album/:id',
+      name: 'EditAdmin',
+      component: EditAdmin
+    },
     {
       path: '/delete_album/:id',
       name: 'DeleteAdmin',
@@ -50,3 +51,4 @@ export default new Router({
     }
   ]
 })
+

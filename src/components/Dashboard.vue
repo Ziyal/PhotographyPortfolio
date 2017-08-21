@@ -54,15 +54,11 @@ export default {
             description: '',
             category: ''
           },
-          // curr_user = CheckStatus();
         }
     },
     created: function() {
       this.DisplayAlbums();
     },
-    // props: {
-    //   album_id: this.album._id
-    // },
     methods: {
       DisplayAlbums() {
         axios.get('http://localhost:3000/display_albums')

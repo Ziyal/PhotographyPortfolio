@@ -2,6 +2,10 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const multer = require('multer');
+
+// **************************************
+// ************ MONGOOSE ****************
 
 // Set up database
 const  mongoose = require('mongoose');
@@ -28,7 +32,7 @@ var Users = mongoose.model("Users");
 mongoose.model("Albums", AlbumsSchema);
 var Albums = mongoose.model("Albums");
 
-// ***********************************
+// *****************************************
 
 const app = express();
 
@@ -43,8 +47,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+var fs = require("fs");
 
-// ********** CONTROLLER **********
+
+// **************** CONTROLLER ****************
 
 // Admin login
 app.post('/login', function(req, res) {
@@ -79,10 +85,9 @@ app.get("/display_albums", function(req, res) {
     }) 
 });
 
-app.get("/find_album/", function(req, res) {
+app.post("/find_album/", function(req, res) {
   Albums.find({_id: req.body.id})
     .then(album => {
-      console.log(req.body.id)
       res.json(album)
     })
     .catch(error => {
@@ -100,8 +105,6 @@ app.post("/delete_album/:id", function(req, res) {
     })
 });
 
-
-
 app.post('/create_album', function(req, res) {
 
   var album = new Albums(req.body)
@@ -113,6 +116,20 @@ app.post('/create_album', function(req, res) {
 
   console.log(req.body)
 });
+
+// Upload photos and save in server 
+// from EditAdmin
+app.post('/upload_photos', function(req, res) {
+  console.log("Server Hit!!!!!!!!!!")
+  console.log(req.files);
+
+  fs.readFile(req.files.path, function(err, data) {
+    var newPath = __dirname + "/uploads/uploadedFileName";
+    fs.writeFile(newPath, data, function(err) {
+      console.log("complete")
+    })
+  })
+})
 
 app.get('/check_status', function(req, res) {
   res.json({user: req.session.user});

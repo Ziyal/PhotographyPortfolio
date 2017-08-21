@@ -38,7 +38,7 @@ export default {
         
         axios.post('http://localhost:3000/login', user)
           .then(function() {
-            this.router.push({name: 'Dashboard'})
+            this.$router.push({ path: '/dashboard'})
             // router.go('/dashboard')
             // this.$router.push({path: "/dashboard"})
           })

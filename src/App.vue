@@ -42,8 +42,8 @@ export default {
   top: 0px;
   z-index: 10001;
   width: 100%;
-  display: -webkit-flex;
   display: flex;
+  display: -webkit-flex;
 }
 
 h1 {
@@ -52,7 +52,7 @@ h1 {
   // padding-top: 10px;
   // font-size: 30px;
   width: 50%;
-  max-width: 500px;
+  max-width: 430px;
   Font-Family: 'Work Sans', Sans-Serif;
 }
 
@@ -61,6 +61,8 @@ h1 {
   margin: 0 auto;
   text-align: right;
   padding-top: 14px;
+  flex: 1;
+  margin-right: 15px;
 }
 
 .navbar-list {
@@ -110,10 +112,12 @@ a:hover {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   h1 {
-    font-size: 25px;
+    font-size: 20px;
   }
+
+  
 }
 
 @media (max-width: 550px) {

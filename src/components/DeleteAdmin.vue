@@ -1,7 +1,7 @@
 <template>
   <div class="delete-admin">
 
-    <h1>Are you sure you want to delete ALBUM NAME?</h1>
+    <h1>Are you sure you want to delete {{album[0].title}}</h1>
 
     <form action="/delete_album" method="post" role="form" @submit.prevent="DeleteAlbum()">
         <input type="submit" value="DELETE">
@@ -27,10 +27,9 @@ export default {
     },
     methods: {
         FindAlbum() {
-            var id = { id: this.$route.params.id }
-            axios.get('http://localhost:3000/find_album', id)
+            var id = { id: this.$route.params.id };
+            axios.post('http://localhost:3000/find_album', id)
                 .then(response => {
-                    console.log("Album Found: ", response.data)
                     this.album = response.data;
                 })
                 .catch(err => console.log(err))
