@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import Albums from '@/components/Albums'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Admin from '@/components/Admin'
@@ -18,6 +19,11 @@ export default new Router({
       name: 'Home',
       component: Home
     },
+    {
+      path: '/albums',
+      name: 'Albums',
+      component: Albums
+    },    
     {
       path: '/about',
       name: 'About',

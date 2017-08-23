@@ -63,6 +63,8 @@ img {
     margin-bottom: 25px;
     font-style: italic;
 }
+/* ---------- End Left Container ---------- */
+
 
 /* ---------- Right Container ---------- */
 .right-container {
@@ -116,6 +118,7 @@ form .form-btn {
 form .form-btn:hover {
     font-weight: bolder;
 }
+/* ---------- End Right Container ---------- */
 
 @media (max-width: 9000px) {
     .right-container {

@@ -2,7 +2,6 @@
   <div id="app">
 
     <div class="header">
-
       <h1>Sereina Charise Photography</h1>
 
       <div id="navbar-container">
@@ -13,22 +12,29 @@
           <li class="navbar-item"><router-link to="/contact">Contact</router-link></li>
         </ul>
         <div class="social-icons">
-          <a href="#"><img src="./assets/social_media/facebook.png" class="icon"></a>
-          <a href="#"><img src="./assets/social_media/instagram.png" class="icon"></a>
-          <a href="#"><img src="./assets/social_media/twitter.png" class="icon"></a>
+          <a href="#" target="_blank"><img src="./assets/social_media/facebook.png" class="icon"></a>
+          <a href="http://instagram.com/sereinainanutshell" target="_blank"><img src="./assets/social_media/instagram.png" class="icon"></a>
+          <a href="https://twitter.com/sereinanutshell" target="_blank"><img src="./assets/social_media/twitter.png" class="icon"></a>
         </div>
       </div>
-
-
     </div>
 
     <router-view></router-view>
+
+    <div id="footer">
+      <p class="footer-text">Copyright &copy; {{currYear}} Sereina Blanchard.</p>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  data: function() {
+    return {
+      currYear: new Date().getFullYear()
+    }
+  }
 }
 </script>
 
@@ -90,8 +96,27 @@ h1 {
   width: 18px;
   margin: 0px 5px 0px 5px;
 }
+/************* End Header *************/
 
-/*/************* DEFAULTS *************/
+/************* Footer *************/
+#footer {
+  height: 45px;
+  background-color: #ededed;
+  margin: 0;
+  text-align: center;
+  border-top: solid #dbdbdb 1px;
+}
+
+.footer-text {
+  margin: 0;
+  padding-top: 12px;
+  font-size: 12px;
+  color: #7c7c7c;
+
+}
+/************* End Footer *************/
+
+/*/************* Defaults *************/
 a {
   color: black;
   text-decoration: none;
@@ -118,8 +143,6 @@ a:hover {
   h1 {
     font-size: 20px;
   }
-
-  
 }
 
 @media (max-width: 550px) {
