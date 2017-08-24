@@ -1,34 +1,30 @@
 <template>
   <div class="edit-admin">
     <!--<h2>Edit Album - {{album[0].title}}</h2>-->
-    
-    <dropzone id="myVueDropzone" class="dropzone" url="http://localhost:3000/upload_photos" ref="uploadImages" v-on:vdropzone-success="uploadSuccess"></dropzone>
 
-    <!--<form action="/upload_photos" class="dropzone" id="image-uploader">
-      <input type="file" name="file"/>
-    </form>-->
-
+    <dropzone id="myVueDropzone" class="dropzone" :url="serverUrl" v-on:vdropzone-success="uploadSuccess"></dropzone>
 
   </div>
 </template>
 
-<script src="../assets/dropzone.js"></script>
 <script>
 const axios = require('axios');
 import Dropzone from 'vue2-dropzone';
 
-
 export default {
     data: function() {
         return {
-          // url: 'http://localhost:3000/server/uploaded/'
-          serverUrl: 'http://localhost:3000/upload_photos'
+          serverUrl: 'http://localhost:3000/upload_photos/'+this.$route.params.id,
+          album: {
+            title: '',
+            description: '',
+            category: ''
+          },
         }
     },
     components: {
       Dropzone
     },
-
     created: function() {
         this.FindAlbum();
     },
@@ -43,16 +39,17 @@ export default {
               .catch(err => console.log(err))
       },
 
-      uploadImages: function(files) {
-        console.log("Upload Images Hit!!!!!!!!!!!!!!")
-        axios.post('http://localhost:3000/upload_photos', file)
-          .then(function() {
-            console.log("Send photos to server sucessfully")
-            // redirect
-          })
-          .catch(err => console.log(err))
+      // uploadImages: function(file, xhr, formData) {
+      //   console.log("Upload Images Hit!!!!!!!!!!!!!!")
+      //   vm.$refs.file.setOption('url', 'http://localhost:3000/upload_photos')
+      //   axios.post('http://localhost:3000/upload_photos', file)
+      //     .then(function() {
+      //       console.log("Send photos to server sucessfully")
+      //       // redirect
+      //     })
+      //     .catch(err => console.log(err))
 
-      },
+      // },
 
       uploadSuccess: function(file) {
         console.log('A file was successfully uploaded')
@@ -63,7 +60,6 @@ export default {
         axios.post('http://localhost:3000/check_status')
           .then(data => curr_user = data)
           .catch(err => console.log(err))
-
         
       }
     }

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Albums from '@/components/Albums'
+import SingleAlbum from '@/components/SingleAlbum'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Admin from '@/components/Admin'
@@ -24,6 +25,11 @@ export default new Router({
       name: 'Albums',
       component: Albums
     },    
+    {
+      path: '/albums/:id',
+      name: 'SingleAlbum',
+      component: SingleAlbum
+    },
     {
       path: '/about',
       name: 'About',

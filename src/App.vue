@@ -102,6 +102,10 @@ h1 {
   margin: 0;
   text-align: center;
   border-top: solid #dbdbdb 1px;
+  position: absolute;
+  // left: 0;
+  // bottom: 0;
+  width: 100%;
 }
 
 .footer-text {

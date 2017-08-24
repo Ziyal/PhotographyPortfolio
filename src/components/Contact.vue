@@ -13,7 +13,7 @@
         </div>
 
         <div class="right-container">
-            <h1 class="form-title">Contact:</h1>
+            <h1 class="form-title">Contact</h1>
             <!-- Contact Form -->
             <form action="https://formspree.io/wintermist3@gmail.com" method="POST">
                 <input type="text" name="name" placeholder="Name" class="form-field form-input">
@@ -51,6 +51,7 @@ img {
 .left-container {
     flex-grow: 1;
     margin: 15px;
+    margin-top: 60px;
     text-align: center;
     width: 40%;
 }
@@ -83,6 +84,8 @@ img {
 .form-title {
     margin: 0px;
     margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
 }
 
 /* Form Inputs */
@@ -91,9 +94,9 @@ form .form-input {
     font-size: 14px;
     font-weight: bold;
     background: #f2f2f2;
+    border: solid #dbdbdb 1px;
     outline: 0;
     width: 100%;
-    border: 0;
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
@@ -106,7 +109,7 @@ form .form-btn {
     outline: 0;
     background: #4CAF50;
     width: 100%;
-    border: 0;
+    border: solid #409943 1px;
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
@@ -123,6 +126,10 @@ form .form-btn:hover {
 @media (max-width: 9000px) {
     .right-container {
         padding-right: 8%;
+    }
+
+    .form-title {
+        margin-left: 10%;
     }
 
 }

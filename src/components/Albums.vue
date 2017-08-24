@@ -2,13 +2,44 @@
   <div class="albums">
     <h2 class="title">Albums</h2>
     <hr>
-    <h2 class="sub-title">Comming Soon!</h2>
+
+    <div class="albums">
+        <div v-for="album in all_albums">
+            <router-link :to="{ name: 'SingleAlbum', params: { id: album._id }}"><h2>{{ album.title }}</h2></router-link>
+        </div>
+    </div>
 
 
   </div>
 </template>
 
 <script>
+const axios = require('axios');
+
+export default {
+    data: function() {
+        return {
+          all_albums: [],
+          album: [{
+            title: '',
+            description: '',
+            category: ''
+          }],
+        }
+    },
+    created: function() {
+      this.DisplayAlbums();
+    },
+    methods: {
+      DisplayAlbums() {
+        axios.get('http://localhost:3000/display_albums')
+          .then(response =>  {
+            this.all_albums = response.data;
+          })
+          .catch(err => console.log(err))
+      }
+    }
+}
 
 </script>
 

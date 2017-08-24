@@ -4,6 +4,16 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const multer = require('multer');
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + '/static/uploads/albums')
+  },
+  filename: function (req, file, cb) {
+    cb(null, "photo" + '_' + Date.now()+'.jpg')
+  }
+})
+const upload = multer({ storage: storage });
+
 // **************************************
 // ************ MONGOOSE ****************
 
@@ -26,11 +36,19 @@ var AlbumsSchema = new mongoose.Schema({
   category: {type: String, required: true}
 })
 
+var PhotosSchema = new mongoose.Schema({
+  location: {type: String, required: true},
+  album_id: {type: String, required: true}
+})
+
 mongoose.model("Users", UsersSchema);
 var Users = mongoose.model("Users");
 
 mongoose.model("Albums", AlbumsSchema);
 var Albums = mongoose.model("Albums");
+
+mongoose.model("Photos", PhotosSchema);
+var Photos = mongoose.model("Photos");
 
 // *****************************************
 
@@ -43,7 +61,8 @@ app.use(session({secret: 'itsasecret'}));
 // Sets middlewear to connect Vue to Express
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
+  res.header('content-type: application/json; charset=utf-8');
   next();
 });
 
@@ -72,11 +91,11 @@ app.post('/login', function(req, res) {
   });
 });
 
+// Returns array of ALL ALBUMS
+// from Dashboard
 app.get("/display_albums", function(req, res) {
-
   Albums.find({})
     .then(albums => { 
-      console.log(albums)
       res.json(albums) 
     })
     .catch(err => {
@@ -85,6 +104,7 @@ app.get("/display_albums", function(req, res) {
     }) 
 });
 
+// Uses Album ID to find and return said album
 app.post("/find_album/", function(req, res) {
   Albums.find({_id: req.body.id})
     .then(album => {
@@ -95,6 +115,8 @@ app.post("/find_album/", function(req, res) {
     })
 });
 
+// Remove album from DB
+// from Dashboard
 app.post("/delete_album/:id", function(req, res) {
   Albums.remove({_id: req.params.id})
     .then(album => {
@@ -105,8 +127,9 @@ app.post("/delete_album/:id", function(req, res) {
     })
 });
 
+// Create album and add to DB
+// from Dashboard
 app.post('/create_album', function(req, res) {
-
   var album = new Albums(req.body)
   album.save()
     .then(() => {
@@ -119,17 +142,30 @@ app.post('/create_album', function(req, res) {
 
 // Upload photos and save in server 
 // from EditAdmin
-app.post('/upload_photos', function(req, res) {
+app.post('/upload_photos/:id', upload.array('file'), function(req, res) {
   console.log("Server Hit!!!!!!!!!!")
-  console.log(req.files);
+  console.log(req.files[0].filename)
 
-  fs.readFile(req.files.path, function(err, data) {
-    var newPath = __dirname + "/uploads/uploadedFileName";
-    fs.writeFile(newPath, data, function(err) {
-      console.log("complete")
+  var photo = new Photos({ location: req.files[0].filename, album_id: req.params.id});
+  photo.save()
+    .then(() => {
+      console.log("Photo added to DB");
+      res.json(true);
+    });
+
+});
+
+app.post("/find_photos", function(req, res) {
+  console.log("Find Photos function hit!!!!!!!!!!!")
+  Photos.find({album_id: req.body.id})
+    .then(photos => {
+      console.log(photos)
+      res.json(photos)
     })
-  })
-})
+    .catch(error => {
+      console.log(error)
+    })
+});
 
 app.get('/check_status', function(req, res) {
   res.json({user: req.session.user});
