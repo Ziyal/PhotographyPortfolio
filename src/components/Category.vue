@@ -1,6 +1,6 @@
 <template>
-  <div class="album">
-    <h2 class="title">{{ album_title }}</h2>
+  <div class="edit-admin">
+    <h1>{{category_title}}</h1>
 
     <div class="images-container">
         <!-- Dispalys all images in album -->
@@ -20,20 +20,18 @@ export default {
         return {
           all_photos: [],
           album: [],
-          album_title: null
+          category_title: this.$route.params.category
         }
     },
     created: function() {
-      this.FindAlbum();
-      this.FindPhotos();
+      this.FindCategory();
     },
     methods: {
-        FindAlbum() {
-            var id = { id: this.$route.params.id};
-            axios.post('http://localhost:3000/find_album', id)
+        FindCategory() {
+            var category = { category: this.$route.params.category};
+            axios.post('http://localhost:3000/find_category', category)
                 .then(response => {
-                    this.album = response.data;
-                    this.album_title = response.data[0].title;
+                    this.all_photos = response.data;
                 })
                 .catch(err => console.log(err))
         },
@@ -49,16 +47,18 @@ export default {
     }
 }
 
+
 </script>
 
 <style scoped>
-.album {
-    margin-top: 50px;
+.edit-admin {
+    margin-top: 60px;
+    display: block;
 }
 
-.title {
-    text-align: center;
-    padding-top: 50px;
+.edit-container {
+  width: 75%;
+  display: inline-block;
 }
 
 .images-container {
@@ -101,5 +101,6 @@ export default {
   column-count:         1;
   }
 }
+
 
 </style>

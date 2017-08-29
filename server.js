@@ -97,6 +97,20 @@ app.post('/login', function(req, res) {
   });
 });
 
+// Finds all images for selected category
+// From Home
+app.post("/find_category", function(req, res) {
+  Photos.find({ category: req.body.category })
+    .then(photos => {
+      console.log("Photos Found")
+      res.json(photos)
+    })
+    .catch(err => {
+      console.log("Find Category Error!")
+        res.status(500).json(err);
+    })
+});
+
 // Returns array of ALL ALBUMS
 // from Dashboard
 app.get("/display_albums", function(req, res) {

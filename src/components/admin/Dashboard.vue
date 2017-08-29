@@ -3,19 +3,13 @@
     <h1>Admin Dashboard</h1>
     
     <h2>Create an Album</h2>
-    <div class="create-album">
+    <div class="create-album-container">
       <form action="/create_album" method="post" role="form" @submit.prevent="CreateAlbum()">
-        <input type="text" name="title" v-model="album.title" placeholder="Title">
-        <input type="text" name="description" v-model="album.description" placeholder="Description">
-        <select name="category" v-model="album.category">
-          <option value="Portraits">Portraits</option>
-          <option value="Travel">Travel</option>
-          <option value="Lifestyle">Lifestyle</option>
-          <option value="Event">Event</option>
-          <option value="Nature">Nature</option>
-        </select>
+        <b-form-input type="text" name="title" v-model="album.title" placeholder="Title"></b-form-input>
+        <b-form-input type="text" name="description" v-model="album.description" placeholder="Description"></b-form-input>
+        <b-form-select name="category" v-model="album.category" :options="category_options"></b-form-select>
         <br>
-        <input type="submit" value="Create Album" class="submit-btn">
+        <input type="submit" value="Create Album" class="btn btn-primary">
       </form>
     </div>
 
@@ -24,20 +18,18 @@
 
       <table style="width:100%">
         <tr v-for="album in all_albums">
-          <td><router-link :to="{ name: 'AlbumAdmin', params: { id: album._id }}">{{album.title}}</router-link></td>
+          <td><router-link :to="{ name: 'SingleAlbum', params: { id: album._id }}">{{album.title}}</router-link></td>
           <td>{{album.description}}</td> 
           <td>{{album.category}}</td>
           <td>
-            <router-link :to="{name: 'EditAdmin', params: { id: album._id, category: album.category }}">Edit</router-link>
+            <router-link :to="{name: 'UploadAdmin', params: { id: album._id, category: album.category }}">Upload</router-link>
+            <router-link :to="{name: 'EditAdmin', params: { id: album._id }}">Edit</router-link>
             <router-link :to="{name: 'DeleteAdmin', params: { id: album._id }}">Delete</router-link>
           </td>
         </tr>
       </table>
       
     </div>
-
-
-
 
   </div>
 </template>
@@ -54,6 +46,13 @@ export default {
             description: '',
             category: ''
           },
+          category_options: [
+            { value: "Portraits", text: "Portraits" },
+            { value: "Travel", text: "Travel" },
+            { value: "Lifestyle", text: "Lifestyle" },
+            { value: "Event", text: "Event" },
+            { value: "Nature", text: "Nature" },
+          ],
         }
     },
     created: function() {
@@ -107,6 +106,11 @@ h2 {
   display: inline-block;
   width: 75%;
 }
+
+.create-album-container {
+  width: 60%;
+}
+
 
 
 </style>

@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import Category from '@/components/Category'
 import Albums from '@/components/Albums'
 import SingleAlbum from '@/components/SingleAlbum'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Admin from '@/components/Admin'
-import AlbumAdmin from '@/components/AlbumAdmin'
-import EditAdmin from '@/components/EditAdmin'
-import DeleteAdmin from '@/components/DeleteAdmin'
-import Dashboard from '@/components/Dashboard'
+import AlbumAdmin from '@/components/admin/AlbumAdmin'
+import UploadAdmin from '@/components/admin/UploadAdmin'
+import EditAdmin from '@/components/admin/EditAdmin'
+import DeleteAdmin from '@/components/admin/DeleteAdmin'
+import Dashboard from '@/components/admin/Dashboard'
 
 Vue.use(Router)
 
@@ -24,7 +26,12 @@ export default new Router({
       path: '/albums',
       name: 'Albums',
       component: Albums
-    },    
+    },  
+    {
+      path: '/category/:category',
+      name: 'Category',
+      component: Category
+    },   
     {
       path: '/albums/:id',
       name: 'SingleAlbum',
@@ -57,7 +64,12 @@ export default new Router({
       component: AlbumAdmin
     },
     {
-      path: '/edit_album/:id/:category',
+      path: '/upload_album/:id/:category',
+      name: 'UploadAdmin',
+      component: UploadAdmin
+    },
+    {
+      path: '/edit_admin/:id',
       name: 'EditAdmin',
       component: EditAdmin
     },

@@ -6,55 +6,55 @@
     <div class="photos">
       <ul>
         <li>
-          <router-link to="/nature">
+          <router-link :to="{ name: 'Category', params: { category: categories.Nature }}">
             <img src="../assets/images/nature.jpg">
             <h5 class="category">Nature</h5>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/lifestyle">
+          <router-link :to="{ name: 'Category', params: { category: categories.Lifestyle }}">
             <img src="../assets/images/lifestyle.jpg">
             <h5 class="category">Lifestyle</h5>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/events">
+          <router-link :to="{ name: 'Category', params: { category: categories.Events }}">
             <img src="../assets/images/event.jpg">
             <h5 class="category">Events</h5>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/headshots">
+          <router-link :to="{ name: 'Category', params: { category: categories.Headshots }}">
             <img src="../assets/images/headshot.jpg">
             <h5 class="category">Headshots</h5>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/family">
+          <router-link :to="{ name: 'Category', params: { category: categories.Family }}">
             <img src="../assets/images/family.jpg">
             <h5 class="category">Family</h5>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/travel">
+          <router-link :to="{ name: 'Category', params: { category: categories.Travel }}">
             <img src="../assets/images/travel.jpg">
             <h5 class="category">Travel</h5>
           </router-link>
         </li>
         <li>
-          <router-link to="/portraits">
+          <router-link :to="{ name: 'Category', params: { category: categories.Portraits }}">
             <img src="../assets/images/portrait.jpg">
             <h5 class="category">Portraits</h5>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/other">
+          <router-link :to="{ name: 'Category', params: { category: categories.Other }}">
             <img src="../assets/images/other.jpg">
             <h5 class="category">Other</h5>
           </router-link>
@@ -71,7 +71,14 @@
 </template>
 
 <script>
-
+export default {
+    data: function() {
+        return {
+          categories: { Portraits: "Portraits", Travel: "Travel", Lifestyle: "Lifestyle", Events: "Events", Nature: "Nature", Headshots: "Headshots", Other: "Other", Family: "Family" },
+          notifications: []
+        }
+    },
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
