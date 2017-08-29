@@ -12,7 +12,7 @@
           <a href="#" target="_blank" class="icon-link"><img src="./assets/social_media/facebook.png" class="icon"></a>
           <a href="http://instagram.com/sereinainanutshell" target="_blank" class="icon-link"><img src="./assets/social_media/instagram.png" class="icon"></a>
           <a href="https://twitter.com/sereinanutshell" target="_blank" class="icon-link"><img src="./assets/social_media/twitter.png" class="icon"></a>
-          <a href="#" class="hamburger" v-on:click="makeResponsive">&#9776;</a>
+          <a class="hamburger" v-on:click="makeResponsive">&#9776;</a>
       </div>
     </div>
 

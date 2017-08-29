@@ -9,7 +9,6 @@
 
     <button><router-link :to="{ name: 'Dashboard'}">Back</router-link></button>
 
-    
   </div>
 </template>
 

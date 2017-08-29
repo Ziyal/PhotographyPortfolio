@@ -2,47 +2,38 @@
   <div class="about">
     <h1>About</h1>
 
+    <!-- Photo Squares -->
     <ul>
       <li>
         <img src="../assets/images/sereina2.jpg" class="content">
       </li>
-
       <li>
         <img src="../assets/images/sereina6.jpg" class="content">
       </li>
-
       <li>
         <img src="../assets/images/sereina5.jpg" class="content">
       </li>
-
       <li>
         <img src="../assets/images/sereina7.jpg" class="content">
       </li>
 
       <li>
-
         <p class="text-box">● ● ●</p>
         <p class="text-box">I'm Sereina. Born a raised in the beautiful Seattle area. Lover of lindy hop, Disney parks, and old black and white movies. Lifestyle and portrait photographer.</p>
-
         <p class="text-box">My goal is to create natural and authentic photos that represent who you really are. I want to showcase that charming personality you have and display that passion that everyone knows you for.</p>
-
         <p class="text-box">● ● ●</p>
 
         <!--<p class="text-box bottom-paragraph">I'm really big on candid emotions and try to capture that feeling with my camera. Odds are I'll end up telling bad jokes or acting like a goofball, so if you're down for that kinda action, shoot me an email!</p>-->
       </li>
-
       <li>
         <img src="../assets/images/sereina1.jpg" class="content">
       </li>
-
       <li>
         <img src="../assets/images/sereina3.jpg" class="content">
       </li>
-      
       <li>
         <img src="../assets/images/sereina8.jpg" class="content">
       </li>
-
       <li>
         <img src="../assets/images/sereina4.jpg" class="content">
       </li>
@@ -55,7 +46,6 @@
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 ul {
@@ -126,6 +116,4 @@ li {
         width: 50%;
     }
 }
-
-
 </style>

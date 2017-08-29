@@ -57,7 +57,7 @@ export default new Router({
       component: AlbumAdmin
     },
     {
-      path: '/edit_album/:id',
+      path: '/edit_album/:id/:category',
       name: 'EditAdmin',
       component: EditAdmin
     },

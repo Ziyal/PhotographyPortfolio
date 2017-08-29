@@ -14,43 +14,49 @@ var storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage });
 
-// **************************************
-// ************ MONGOOSE ****************
+// ******************************************
+// **************** MONGOOSE ****************
 
-// Set up database
 const  mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/SCPhotography');
+// Set up database
 mongoose.Promise = global.Promise;
 var promise = mongoose.connect('mongodb://localhost/SCPhotography', {
   useMongoClient: true,
 });
 
+/* ****** Mongoose Schemas ***** */
+
+/* ----- Users Schema ----- */
 var UsersSchema = new mongoose.Schema({
     email: {type: String, required: true},
     password: {type: String, required: true}
 })
 
+mongoose.model("Users", UsersSchema);
+var Users = mongoose.model("Users");
+
+/* ----- Albums Schema ----- */
 var AlbumsSchema = new mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
   category: {type: String, required: true}
 })
 
-var PhotosSchema = new mongoose.Schema({
-  location: {type: String, required: true},
-  album_id: {type: String, required: true}
-})
-
-mongoose.model("Users", UsersSchema);
-var Users = mongoose.model("Users");
-
 mongoose.model("Albums", AlbumsSchema);
 var Albums = mongoose.model("Albums");
+
+/* ----- Photos Schema ----- */
+var PhotosSchema = new mongoose.Schema({
+  location: {type: String, required: true},
+  album_id: {type: String, required: true},
+  category: {type: String, required: true}
+})
 
 mongoose.model("Photos", PhotosSchema);
 var Photos = mongoose.model("Photos");
 
 // *****************************************
+// **************** SERVER ****************
 
 const app = express();
 
@@ -142,11 +148,11 @@ app.post('/create_album', function(req, res) {
 
 // Upload photos and save in server 
 // from EditAdmin
-app.post('/upload_photos/:id', upload.array('file'), function(req, res) {
+app.post('/upload_photos/:id/:category', upload.array('file'), function(req, res) {
   console.log("Server Hit!!!!!!!!!!")
   console.log(req.files[0].filename)
 
-  var photo = new Photos({ location: req.files[0].filename, album_id: req.params.id});
+  var photo = new Photos({ location: req.files[0].filename, album_id: req.params.id, category: req.params.category});
   photo.save()
     .then(() => {
       console.log("Photo added to DB");
@@ -155,6 +161,7 @@ app.post('/upload_photos/:id', upload.array('file'), function(req, res) {
 
 });
 
+// Finds all photos for specific album
 app.post("/find_photos", function(req, res) {
   console.log("Find Photos function hit!!!!!!!!!!!")
   Photos.find({album_id: req.body.id})
@@ -167,6 +174,7 @@ app.post("/find_photos", function(req, res) {
     })
 });
 
+// Checks if user is logged in to session
 app.get('/check_status', function(req, res) {
   res.json({user: req.session.user});
 });

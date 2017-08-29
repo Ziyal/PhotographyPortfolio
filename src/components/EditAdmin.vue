@@ -14,7 +14,7 @@ import Dropzone from 'vue2-dropzone';
 export default {
     data: function() {
         return {
-          serverUrl: 'http://localhost:3000/upload_photos/'+this.$route.params.id,
+          serverUrl: 'http://localhost:3000/upload_photos/'+this.$route.params.id+'/'+this.$route.params.category,
           album: {
             title: '',
             description: '',
@@ -39,18 +39,6 @@ export default {
               .catch(err => console.log(err))
       },
 
-      // uploadImages: function(file, xhr, formData) {
-      //   console.log("Upload Images Hit!!!!!!!!!!!!!!")
-      //   vm.$refs.file.setOption('url', 'http://localhost:3000/upload_photos')
-      //   axios.post('http://localhost:3000/upload_photos', file)
-      //     .then(function() {
-      //       console.log("Send photos to server sucessfully")
-      //       // redirect
-      //     })
-      //     .catch(err => console.log(err))
-
-      // },
-
       uploadSuccess: function(file) {
         console.log('A file was successfully uploaded')
       },
@@ -69,38 +57,15 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-
 .edit-admin {
     margin-top: 60px;
+    display: flex;
 }
 
-.dropbox {
-    outline: 2px dashed grey; /* the dash box */
-    outline-offset: -10px;
-    background: #f2f2f2;
-    color: dimgray;
-    padding: 10px 10px;
-    min-height: 200px; /* minimum height */
-    position: relative;
-    cursor: pointer;
-  }
-
-.input-file {
-    opacity: 0; /* invisible but it's there! */
-    width: 100%;
-    height: 200px;
-    position: absolute;
-    cursor: pointer;
-  }
-
-.dropbox:hover {
-    background: #eaeaea; /* when mouse over to the drop zone, change color */
-  }
-
-.dropbox p {
-    font-size: 1.2em;
-    text-align: center;
-    padding: 50px 0;
-  }
+.dropzone {
+  width: 85%;
+  justify-content: center;
+  margin: 30px;
+}
 
 </style>

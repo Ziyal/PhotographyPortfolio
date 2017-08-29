@@ -28,7 +28,7 @@
           <td>{{album.description}}</td> 
           <td>{{album.category}}</td>
           <td>
-            <router-link :to="{name: 'EditAdmin', params: { id: album._id }}">Edit</router-link>
+            <router-link :to="{name: 'EditAdmin', params: { id: album._id, category: album.category }}">Edit</router-link>
             <router-link :to="{name: 'DeleteAdmin', params: { id: album._id }}">Delete</router-link>
           </td>
         </tr>
