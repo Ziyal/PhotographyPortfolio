@@ -1,15 +1,22 @@
 <template>
   <div class="admin">
 
+    <!-- Login Form -->
     <div class="login-container">
       <form action="/login" method="post" role="form" @submit.prevent="sub()">
-        <input type="email" name="email" v-model="user.email" placeholder="Email">
-        <input type="password" name="password" v-model="user.password" placeholder="Password"><br>
-        <input type="submit" value="LOGIN" class="submit-btn">
+        <b-form-input type="email" name="email" v-model="user.email" placeholder="Email"></b-form-input>
+        <b-form-input type="password" name="password" v-model="user.password" placeholder="Password"></b-form-input>
+        <b-form-input type="submit" value="LOGIN" class="btn btn-primary"></b-form-input>
       </form>
     </div>
 
-    <h5 v-if="notifications[0]">{{ notifications[0].msg }}</h5>
+    <!-- Displays login error -->
+    <b-alert variant="danger"
+             dismissible
+             :show="loginError"
+             @dismissed="loginError=false">
+      Invalid Email or Password
+    </b-alert>
 
   </div>
 </template>
@@ -26,7 +33,7 @@ export default {
             email: '',
             password: ''
           },
-          notifications: []
+          loginError: false,
         }
     },
     methods: {
@@ -38,16 +45,13 @@ export default {
         
         axios.post('http://localhost:3000/login', user)
           .then(function() {
-            this.$router.push({ path: '/dashboard'})
+            this.$router.push({ path: decodeURIComponent(this.$route.query.redirect || '/')})
             // router.go('/dashboard')
             // this.$router.push({path: "/dashboard"})
           })
           .catch((err) => {
-            console.log(err),
-            this.notifications.push({
-              msg: "Invalid email or password"
-            }),
-            console.log(this.notifications)
+            console.log(err);
+            this.loginError = true;
           })
 
       }
@@ -55,26 +59,19 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .admin {
   display: block;
   margin: 0 auto;
-  width: 200px;
 }
 
 .login-container {
   margin-top: 80px;
+  margin-bottom: 35px;
   display: inline-block;
-  // width: 200px;
-}
-
-.submit-btn {
-  width: 204px;
 }
 
 input {
-  width: 200px;
   margin-top:5px;
 }
 

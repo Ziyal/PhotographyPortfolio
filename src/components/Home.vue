@@ -20,7 +20,7 @@
         </li>
 
         <li>
-          <router-link :to="{ name: 'Category', params: { category: categories.Events }}">
+          <router-link :to="{ name: 'Category', params: { category: categories.Event }}">
             <img src="../assets/images/event.jpg">
             <h5 class="category">Events</h5>
           </router-link>
@@ -74,7 +74,7 @@
 export default {
     data: function() {
         return {
-          categories: { Portraits: "Portraits", Travel: "Travel", Lifestyle: "Lifestyle", Events: "Events", Nature: "Nature", Headshots: "Headshots", Other: "Other", Family: "Family" },
+          categories: { Portraits: "Portraits", Travel: "Travel", Lifestyle: "Lifestyle", Event: "Event", Nature: "Nature", Headshots: "Headshots", Other: "Other", Family: "Family" },
           notifications: []
         }
     },

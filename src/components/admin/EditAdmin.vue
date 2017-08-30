@@ -38,11 +38,14 @@ export default {
             category: ''
           },
           category_options: [
-            { value: "Portraits", text: "Portraits" },
-            { value: "Travel", text: "Travel" },
+            { value: "Nature", text: "Nature" },
             { value: "Lifestyle", text: "Lifestyle" },
             { value: "Event", text: "Event" },
-            { value: "Nature", text: "Nature" },
+            { value: "Headshots", text: "Headshots" },
+            { value: "Family", text: "Family" },
+            { value: "Travel", text: "Travel" },
+            { value: "Portraits", text: "Portraits" },
+            { value: "Other", text: "Other" },
           ],
           notifications: []
         }

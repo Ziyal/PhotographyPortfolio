@@ -30,7 +30,7 @@ var promise = mongoose.connect('mongodb://localhost/SCPhotography', {
 var UsersSchema = new mongoose.Schema({
     email: {type: String, required: true},
     password: {type: String, required: true}
-})
+}, {timestamps: true})
 
 mongoose.model("Users", UsersSchema);
 var Users = mongoose.model("Users");
@@ -40,7 +40,7 @@ var AlbumsSchema = new mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
   category: {type: String, required: true}
-})
+}, {timestamps: true})
 
 mongoose.model("Albums", AlbumsSchema);
 var Albums = mongoose.model("Albums");
@@ -50,7 +50,7 @@ var PhotosSchema = new mongoose.Schema({
   location: {type: String, required: true},
   album_id: {type: String, required: true},
   category: {type: String, required: true}
-})
+}, {timestamps: true})
 
 mongoose.model("Photos", PhotosSchema);
 var Photos = mongoose.model("Photos");

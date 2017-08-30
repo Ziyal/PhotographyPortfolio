@@ -59,23 +59,29 @@ export default {
 .title {
     text-align: center;
     padding-top: 50px;
+    font-size: 40px;
 }
 
+/* ------------ Photo Gallery ------------ */
 .images-container {
-    /* Prevent vertical gaps */
-  line-height: 0;
-  -webkit-column-count: 3;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    3;
-  -moz-column-gap:      0px;
-  column-count:         3;
-  column-gap:           0px; 
-}
+    line-height: 0;
+    -webkit-column-count: 3;
+    -webkit-column-gap:   0px;
+    -moz-column-count:    3;
+    -moz-column-gap:      0px;
+    column-count:         3;
+    column-gap:           0px; 
+    }
 
 .images-container .wrapper .image {
 /* Just in case there are inline attributes */
-  width: 100% !important;
-  height: auto !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* --- Makes images larger on hover --- */
+.images-container .wrapper:hover .image{
+    transform:scale(1.01);
 }
 
 @media (max-width: 9000px) {

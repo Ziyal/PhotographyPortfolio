@@ -1,6 +1,6 @@
 <template>
   <div class="edit-admin">
-    <h1>{{category_title}}</h1>
+    <h1 class="title">{{category_title}}</h1>
 
     <div class="images-container">
         <!-- Dispalys all images in album -->
@@ -52,30 +52,35 @@ export default {
 
 <style scoped>
 .edit-admin {
-    margin-top: 60px;
-    display: block;
+    margin-top: 50px;
 }
 
-.edit-container {
-  width: 75%;
-  display: inline-block;
+.title {
+    text-align: center;
+    font-size: 40px;
 }
 
+
+/* ------------ Photo Gallery ------------ */
 .images-container {
-    /* Prevent vertical gaps */
-  line-height: 0;
-  -webkit-column-count: 3;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    3;
-  -moz-column-gap:      0px;
-  column-count:         3;
-  column-gap:           0px; 
-}
+    line-height: 0;
+    -webkit-column-count: 3;
+    -webkit-column-gap:   0px;
+    -moz-column-count:    3;
+    -moz-column-gap:      0px;
+    column-count:         3;
+    column-gap:           0px; 
+    }
 
 .images-container .wrapper .image {
 /* Just in case there are inline attributes */
-  width: 100% !important;
-  height: auto !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* --- Makes images larger on hover --- */
+.images-container .wrapper:hover .image{
+    transform:scale(1.01);
 }
 
 @media (max-width: 9000px) {
