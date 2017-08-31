@@ -6,7 +6,7 @@ I wanted to create a project where I could do a lot of pretty front-end stuff wi
 
 On the back end I have a Express server with a MongoDB database. It's there were I'm able to login, create and modify albums, add photos to the DB, and query for albums and photos.
 
-##__To-Do:__
+__To-Do:__
 * Refresh pages after form submitted
 * finish dashboard styling
 * finish albums styling

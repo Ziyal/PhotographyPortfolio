@@ -5,55 +5,56 @@
 
     <div class="photos">
       <ul>
-        <li>
+        <li> <!-- Nature -->
           <router-link :to="{ name: 'Category', params: { category: categories.Nature }}">
             <img src="../assets/images/nature.jpg">
             <h5 class="category">Nature</h5>
           </router-link>
         </li>
 
-        <li>
+        <li> <!-- Lifestyle -->
           <router-link :to="{ name: 'Category', params: { category: categories.Lifestyle }}">
             <img src="../assets/images/lifestyle.jpg">
             <h5 class="category">Lifestyle</h5>
           </router-link>
         </li>
 
-        <li>
+        <li> <!-- Event -->
           <router-link :to="{ name: 'Category', params: { category: categories.Event }}">
             <img src="../assets/images/event.jpg">
             <h5 class="category">Events</h5>
           </router-link>
         </li>
 
-        <li>
+        <li> <!-- Headshots -->
           <router-link :to="{ name: 'Category', params: { category: categories.Headshots }}">
             <img src="../assets/images/headshot.jpg">
             <h5 class="category">Headshots</h5>
           </router-link>
         </li>
 
-        <li>
+        <li> <!-- Family -->
           <router-link :to="{ name: 'Category', params: { category: categories.Family }}">
             <img src="../assets/images/family.jpg">
             <h5 class="category">Family</h5>
           </router-link>
         </li>
 
-        <li>
+        <li> <!-- Travel -->
           <router-link :to="{ name: 'Category', params: { category: categories.Travel }}">
             <img src="../assets/images/travel.jpg">
             <h5 class="category">Travel</h5>
           </router-link>
         </li>
-        <li>
+
+        <li> <!-- Portraits -->
           <router-link :to="{ name: 'Category', params: { category: categories.Portraits }}">
             <img src="../assets/images/portrait.jpg">
             <h5 class="category">Portraits</h5>
           </router-link>
         </li>
 
-        <li>
+        <li> <!-- Other -->
           <router-link :to="{ name: 'Category', params: { category: categories.Other }}">
             <img src="../assets/images/other.jpg">
             <h5 class="category">Other</h5>
@@ -64,8 +65,6 @@
     </div>
 
     <img src='../assets/images/party.jpg' alt="Photobooth" class="large-img">
-
-    <!--<h2><router-link to="/admin">Admin Page</router-link></h2>-->
     
   </div>
 </template>
@@ -75,15 +74,13 @@ export default {
     data: function() {
         return {
           categories: { Portraits: "Portraits", Travel: "Travel", Lifestyle: "Lifestyle", Event: "Event", Nature: "Nature", Headshots: "Headshots", Other: "Other", Family: "Family" },
-          notifications: []
         }
     },
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+/* Main Container */
 .home {
   background-color: black;
 }
@@ -102,7 +99,7 @@ ul {
 
 ul li {
     display: inline-block;
-    // *display: inline;/*for IE6 - IE7*/
+    // *display: inline; /*for IE6 - IE7*/
     width: 25%;
     vertical-align: middle;
     box-sizing: border-box;
@@ -117,7 +114,6 @@ li {
     overflow: hidden;
 }
         
-/* If image layer */
 img {
     display: block;
     width: 100%;
@@ -128,12 +124,13 @@ img {
    -moz-transition: 0.3s linear;
 }
 
+/* Enlarge on hover */
 ul li:hover img {
     transform:scale(1.02);
     opacity: 1;
 }
 
-/* Captions */
+/* categories for square images */
 .category {
     Font-Family: 'Work Sans', Sans-Serif;
     display: block;
@@ -148,6 +145,7 @@ ul li:hover img {
     transition: .5s linear;
 }
 
+/* Show category on hover */
 ul li:hover .category {
     transform: translateY(0px);
     opacity: 1;

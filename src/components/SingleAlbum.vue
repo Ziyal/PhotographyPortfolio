@@ -19,25 +19,14 @@ export default {
     data: function() {
         return {
           all_photos: [],
-          album: [],
           album_title: null
         }
     },
     created: function() {
-      this.FindAlbum();
       this.FindPhotos();
     },
     methods: {
-        FindAlbum() {
-            var id = { id: this.$route.params.id};
-            axios.post('http://localhost:3000/find_album', id)
-                .then(response => {
-                    this.album = response.data;
-                    this.album_title = response.data[0].title;
-                })
-                .catch(err => console.log(err))
-        },
-        // Retrieves photos for single album
+        // Retrieves photos for album from route params
         FindPhotos() {
             var id = { id: this.$route.params.id};
             axios.post('http://localhost:3000/find_photos', id)

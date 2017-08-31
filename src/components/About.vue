@@ -2,19 +2,19 @@
   <div class="about">
     <h1>About</h1>
 
-    <!-- Photo Squares -->
+    <!-- Photo Squares. 3x3 grid. -->
     <ul>
       <li>
-        <img src="../assets/images/sereina2.jpg" class="content">
+        <img src="../assets/images/sereina2.jpg" class="photo">
       </li>
       <li>
-        <img src="../assets/images/sereina6.jpg" class="content">
+        <img src="../assets/images/sereina6.jpg" class="photo">
       </li>
       <li>
-        <img src="../assets/images/sereina5.jpg" class="content">
+        <img src="../assets/images/sereina5.jpg" class="photo">
       </li>
       <li>
-        <img src="../assets/images/sereina7.jpg" class="content">
+        <img src="../assets/images/sereina7.jpg" class="photo">
       </li>
 
       <li>
@@ -26,16 +26,16 @@
         <!--<p class="text-box bottom-paragraph">I'm really big on candid emotions and try to capture that feeling with my camera. Odds are I'll end up telling bad jokes or acting like a goofball, so if you're down for that kinda action, shoot me an email!</p>-->
       </li>
       <li>
-        <img src="../assets/images/sereina1.jpg" class="content">
+        <img src="../assets/images/sereina1.jpg" class="photo">
       </li>
       <li>
-        <img src="../assets/images/sereina3.jpg" class="content">
+        <img src="../assets/images/sereina3.jpg" class="photo">
       </li>
       <li>
-        <img src="../assets/images/sereina8.jpg" class="content">
+        <img src="../assets/images/sereina8.jpg" class="photo">
       </li>
       <li>
-        <img src="../assets/images/sereina4.jpg" class="content">
+        <img src="../assets/images/sereina4.jpg" class="photo">
       </li>
     </ul>
 
@@ -47,11 +47,11 @@
 </script>
 
 <style scoped>
-
+/* --------- Square Images -------- */
 ul {
     margin: 0 auto;
     padding: 0;
-    font-size: 0; /* Remember to change it back to normal font size if using captions */
+    font-size: 0;
     list-style: none;
 }
 
@@ -72,18 +72,20 @@ li {
     text-align: center;
 }
 
-.content {
+.photo {
   display: block;
   width: 100%;
   height: auto;
   vertical-align: top;
 }
 
+/* Content in middle square */
 .text-box {
     width: 90%;
     display: inline-block;
 }
 
+/* Make resposive */
 @media (max-width: 9000px) {
     ul li {
         width: 33.3%;

@@ -1,14 +1,20 @@
 <template>
   <div class="delete-admin">
 
-    <h1>Are you sure you want to delete {{album[0].title}}</h1>
+    <div class="confirmation-container">
+        <h1 class="confirmation-msg">Are you sure you want to delete <span>{{album_title}}</span>?</h1>
 
-    <form action="/delete_album" method="post" role="form" @submit.prevent="DeleteAlbum()">
-        <input type="submit" value="DELETE">
-    </form>
+        <form action="/delete_album" method="post" role="form" @submit.prevent="DeleteAlbum()" class="button">
+            <input type="submit" value="DELETE" class="btn btn-danger">
+        </form>
 
-    <button><router-link :to="{ name: 'Dashboard'}">Back</router-link></button>
+        <!--<form action="/delete_album" method="post" role="form" @submit.prevent="DeleteAlbum()">
+            <input type="submit" value="DELETE">
+        </form>-->
 
+
+        <button class="btn btn-secondary button"><router-link :to="{ name: 'Dashboard'}">Back</router-link></button>
+    </div>
   </div>
 </template>
 
@@ -18,7 +24,7 @@ const axios = require('axios');
 export default {
     data: function() {
         return {
-            album: []
+            album_title: null
         }
     },
     created: function() {
@@ -29,7 +35,7 @@ export default {
             var id = { id: this.$route.params.id };
             axios.post('http://localhost:3000/find_album', id)
                 .then(response => {
-                    this.album = response.data;
+                    this.album_title = response.data[0].title;
                 })
                 .catch(err => console.log(err))
         },
@@ -50,34 +56,37 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-
-@media (max-width: 9000px) {
-    .delete-admin {
-        margin-top: 50px;
-    }
-
-    ul li {
-        width: 25%;
-    }
+.delete-admin {
+    margin-top: 50px;
 }
 
-@media (max-width: 1000px) {
-    ul li {
-        width: 33.3%;
-    }
+.confirmation-container {
+    padding-top: 55px;
+    margin: 40px 40px 0px 40px;
+    padding-bottom: 40px;
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    ul li {
-        width: 33.33%;
-    }
+.confirmation-msg {
+    font-size: 25px;
 }
 
-@media (max-width: 550px) {
-    ul li {
-        width: 50%;
-    }
+/* Album Title */
+span {
+    font-size: 25px;
+    font-weight: bold;
 }
+
+/* Buttons */
+.confirmation-container form {
+    max-width: 120px;
+}
+
+.button {
+    display: inline-block;
+    margin: 10px;
+}
+
 
 
 </style>

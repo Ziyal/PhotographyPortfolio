@@ -1,6 +1,6 @@
 <template>
   <div class="edit-admin">
-    <h1 class="title">{{category_title}}</h1>
+    <h2 class="title">{{category_title}}</h2>
 
     <div class="images-container">
         <!-- Dispalys all images in album -->
@@ -19,26 +19,17 @@ export default {
     data: function() {
         return {
           all_photos: [],
-          album: [],
           category_title: this.$route.params.category
         }
     },
     created: function() {
-      this.FindCategory();
+        this.FindCategory();
     },
     methods: {
+        // Retrieves photos for category on route params
         FindCategory() {
             var category = { category: this.$route.params.category};
             axios.post('http://localhost:3000/find_category', category)
-                .then(response => {
-                    this.all_photos = response.data;
-                })
-                .catch(err => console.log(err))
-        },
-        // Retrieves photos for single album
-        FindPhotos() {
-            var id = { id: this.$route.params.id};
-            axios.post('http://localhost:3000/find_photos', id)
                 .then(response => {
                     this.all_photos = response.data;
                 })
@@ -57,9 +48,12 @@ export default {
 
 .title {
     text-align: center;
+    font-family: 'Work Sans', Sans-Serif;
     font-size: 40px;
+    font-weight: bold;
+    padding-top: 15px;
+    margin-bottom: 15px;
 }
-
 
 /* ------------ Photo Gallery ------------ */
 .images-container {
@@ -78,11 +72,12 @@ export default {
     height: auto !important;
 }
 
-/* --- Makes images larger on hover --- */
+/* Makes images larger on hover */
 .images-container .wrapper:hover .image{
     transform:scale(1.01);
 }
 
+/* Adjusts columns based on screen size */
 @media (max-width: 9000px) {
   .images-container {
   -moz-column-count:    3;
@@ -106,6 +101,5 @@ export default {
   column-count:         1;
   }
 }
-
 
 </style>

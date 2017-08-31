@@ -2,6 +2,7 @@
   <div class="dashboard">
     <h2 class="main-title">Admin Dashboard</h2>
     
+    <!-- Form to Create Album -->
     <div class="create-album-container">
       <h2 class="title">Create an Album</h2>
       <form action="/create_album" method="post" role="form" @submit.prevent="CreateAlbum()">
@@ -13,6 +14,7 @@
       </form>
     </div>
 
+    <!-- All Albums displayed in Table -->
     <div class="albums-container">
       <h2 class="title">All Albums</h2>
 
@@ -67,6 +69,7 @@ export default {
             { value: "Portraits", text: "Portraits" },
             { value: "Other", text: "Other" },
           ],
+          // Titles for table
           fields: {
             title: { label: "Title" },
             description: { label: "Description" },
@@ -79,6 +82,7 @@ export default {
       this.DisplayAlbums();
     },
     methods: {
+      // Retrieves all albums to display
       DisplayAlbums() {
         axios.get('http://localhost:3000/display_albums')
           .then(response =>  {
@@ -87,6 +91,7 @@ export default {
           .catch(err => console.log(err))
       },
 
+      // Takes form data dn saves to database
       CreateAlbum() {
         var album = {
           title: this.album.title,
@@ -103,17 +108,9 @@ export default {
 
           router.push({ name: 'Dashboard'})
       },
-
-      // Checks if admin is logged in
-      CheckSatus() {
-        axios.post('http://localhost:3000/check_status')
-          .then(data => curr_user = data)
-          .catch(err => console.log(err))
-
-        
-      }
     }
 }
+
 </script>
 
 <style scoped>
@@ -135,6 +132,7 @@ export default {
   font-size: 25px;
 }
 
+/* ---------- Album Form ---------- */
 
 .create-album-container {
   margin: 25px;
@@ -144,7 +142,7 @@ export default {
   margin: 5px 0px 5px 0px;
 }
 
-
+/* ---------- Display Albums ---------- */
 .albums-container {
   margin: 25px;
 }

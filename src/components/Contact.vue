@@ -1,17 +1,21 @@
 <template>
   <div class="contact">
-    <img src='../assets/images/lake.jpg' alt="Lake Coeur d'Alene">
+    <img src='../assets/images/lake.jpg' alt="Lake Coeur d'Alene" class="photo">
 
-    <div class="body">
+    <div class="main-container">
+
+        <!-- Text Container on Left Side -->
         <div class="left-container">
             <h4 class="title-1">Have a question? Want to book a session?</h4>
             <h5 class="title-2">Shoot me an email and I'll get back to you ASAP!</h5>
 
+            <!-- Pricing -->
             <p>Portrait Sessions begin at $150</p>
             <p>Famlily Sessions begin at $200</p>
             <p>Events begin at $250</p>
         </div>
 
+        <!-- Contact form on Right Side -->
         <div class="right-container">
             <h1 class="form-title">Contact</h1>
             <!-- Contact Form -->
@@ -29,19 +33,17 @@
 </template>
 
 <script>
-
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.body {
+.main-container {
     margin: 15px 15px 0px 15px;
     display: flex;
     margin-bottom: 20px;
 }
 
 /* Header Image */
-img {
+.photo {
     display: block;
     width: 100%;
     margin-top: 30px;
@@ -64,17 +66,15 @@ img {
     margin-bottom: 25px;
     font-style: italic;
 }
-/* ---------- End Left Container ---------- */
-
 
 /* ---------- Right Container ---------- */
+/* ------- Contains contact form ------- */
 .right-container {
     flex-grow: 2;
     margin: 15px;
-    // width: 45%;
 }
 
-/* All form fields */
+/* Contact form fields */
 .form-field {
     display: block;
     width: 100%;
@@ -118,11 +118,12 @@ form .form-btn {
     cursor: pointer;
 }
 
+/* Form Button on Hover */
 form .form-btn:hover {
     font-weight: bolder;
 }
-/* ---------- End Right Container ---------- */
 
+/* Make Responsive */
 @media (max-width: 9000px) {
     .right-container {
         padding-right: 8%;
@@ -131,7 +132,6 @@ form .form-btn:hover {
     .form-title {
         margin-left: 10%;
     }
-
 }
 
 @media (max-width: 1000px) {
@@ -140,14 +140,9 @@ form .form-btn:hover {
     }}
 
 @media (max-width: 700px) {
-    .body {
+    .main-continaer {
         flex-direction: column;
     }
 }
-
-@media (max-width: 550px) {
-
-}
-
 
 </style>

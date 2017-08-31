@@ -1,7 +1,6 @@
 <template>
   <div class="albums">
     <h2 class="title">Albums</h2>
-    <hr>
 
     <div class="albums">
         <div v-for="album in all_albums">
@@ -20,17 +19,13 @@ export default {
     data: function() {
         return {
           all_albums: [],
-          album: [{
-            title: '',
-            description: '',
-            category: ''
-          }],
         }
     },
     created: function() {
       this.DisplayAlbums();
     },
     methods: {
+      // Retrieves all albums from DB 
       DisplayAlbums() {
         axios.get('http://localhost:3000/display_albums')
           .then(response =>  {
@@ -43,7 +38,6 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .albums {
     margin-top: 50px;
@@ -51,33 +45,11 @@ export default {
 
 .title {
     text-align: center;
-    padding-top: 50px;
-}
-
-.sub-title {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 50px;
-    font-style: italic;
-}
-
-@media (max-width: 9000px) {
-
-}
-
-@media (max-width: 1000px) {
-
-}
-
-@media (max-width: 900px) {
-
-}
-@media (max-width: 600px) {
-
-}
-
-@media (max-width: 550px) {
-
+    font-family: 'Work Sans', Sans-Serif;
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 15px;
+    margin-bottom: 15px;
 }
 
 </style>

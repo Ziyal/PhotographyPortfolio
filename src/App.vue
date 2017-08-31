@@ -1,24 +1,33 @@
 <template>
   <div id="app">
 
-    <div class="header">
-      <h1>Sereina Charise Photography</h1>
+    <!-- Header and Navbar -->
+    <div class="header-container">
+      <h1 class="site-title">Sereina Charise Photography</h1>
 
-      <div id="navbarcontainer" class="navbar">
-          <a class="navbar-item top-link"><router-link to="/">Home</router-link></a>
-          <a class="navbar-item"><router-link to="/albums">Albums</router-link></a>
-          <a class="navbar-item"><router-link to="/about">About</router-link></a>
-          <a class="navbar-item"><router-link to="/contact">Contact</router-link></a>
-          <a href="#" target="_blank" class="icon-link"><img src="./assets/social_media/facebook.png" class="icon"></a>
-          <a href="http://instagram.com/sereinainanutshell" target="_blank" class="icon-link"><img src="./assets/social_media/instagram.png" class="icon"></a>
-          <a href="https://twitter.com/sereinanutshell" target="_blank" class="icon-link"><img src="./assets/social_media/twitter.png" class="icon"></a>
-          <a class="hamburger" v-on:click="makeResponsive">&#9776;</a>
+      <!-- Links and social media icons -->
+      <div id="nav-container" class="navbar">
+        <!-- Links -->
+        <a class="navbar-item top-link"><router-link to="/">Home</router-link></a>
+        <a class="navbar-item"><router-link to="/albums">Albums</router-link></a>
+        <a class="navbar-item"><router-link to="/about">About</router-link></a>
+        <a class="navbar-item"><router-link to="/contact">Contact</router-link></a>
+
+        <!-- Social media links -->
+        <a href="#" target="_blank" class="icon-link"><img src="./assets/social_media/facebook.png" class="icon"></a>
+        <a href="http://instagram.com/sereinainanutshell" target="_blank" class="icon-link"><img src="./assets/social_media/instagram.png" class="icon"></a>
+        <a href="https://twitter.com/sereinanutshell" target="_blank" class="icon-link"><img src="./assets/social_media/twitter.png" class="icon"></a>
+        
+        <!-- Hamburger Button -->
+        <a class="hamburger" v-on:click="makeResponsive">&#9776;</a>
       </div>
     </div>
 
+    <!-- Body Content from Components -->
     <router-view></router-view>
 
-    <div id="footer">
+    <!-- footer -->
+    <div id="footer-container">
       <p class="footer-text">Copyright &copy; {{currYear}} Sereina Blanchard.</p>
     </div>
 
@@ -33,8 +42,9 @@ export default {
     }
   },
   methods: {
+    // Changes navbar from regular to hamburger button
     makeResponsive: function() {
-      let navbar = document.getElementById("navbarcontainer");
+      let navbar = document.getElementById("nav-container");
       if(navbar.className === "navbar") {
         navbar.className += " responsive";
       } else {
@@ -48,76 +58,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:300');
 
-/************* HEADER *************/
-.header {
-  background-color: white;
-  position: fixed;
-  top: 0px;
-  z-index: 10001;
-  width: 100%;
-  display: flex;
-  display: -webkit-flex;
-}
-
-h1 {
-  display: inline-block;
-  margin: 10px 0px 15px 15px;
-  width: 50%;
-  max-width: 430px;
-  Font-Family: 'Work Sans', Sans-Serif;
-}
-
-#navbarcontainer {
-  display: inline-block;
-  margin: 0 auto;
-  text-align: right;
-  padding-top: 14px;
-  flex: 1;
-  margin-right: 15px;
-}
-
-.navbar-list {
-  display: inline-block;
-  text-align: center;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-item {
-  display: inline-block;
-  margin: 0px 20px 0px 20px;
-}
-
-.icon {
-  width: 18px;
-  margin: 0px 5px 0px 5px;
-}
-/************* End Header *************/
-
-/************* Footer *************/
-#footer {
-  height: 45px;
-  background-color: #ededed;
-  margin: 0;
-  text-align: center;
-  border-top: solid #dbdbdb 1px;
-  position: absolute;
-  // left: 0;
-  // bottom: 0;
-  width: 100%;
-}
-
-.footer-text {
-  margin: 0;
-  padding-top: 12px;
-  font-size: 12px;
-  color: #7c7c7c;
-
-}
-/************* End Footer *************/
-
-/*/************* Defaults *************/
+/* ---------- Defaults ---------- */
 * {
   Font-Family: 'Open Sans', Sans-Serif;
   Font-Size: 15px;
@@ -138,34 +79,75 @@ a:hover {
   text-decoration: none;
 }
 
-/* ---------- Media Queries ---------- */
-
-@media (max-width: 9000px) {
-  h1 {
-    font-size: 30px;
-  }
+/************* header-container *************/
+.header-container {
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  z-index: 10001;
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
 }
 
-@media (max-width: 1000px) {
-  h1 {
-    font-size: 25px;
-  }
+.site-title {
+  display: inline-block;
+  margin: 10px 0px 15px 15px;
+  width: 50%;
+  max-width: 430px;
+  font-size: 30px;
+  Font-Family: 'Work Sans', Sans-Serif;
 }
 
-/* ----- Resposive Navbar ----- */
+.header-container #nav-container {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: right;
+  padding-top: 14px;
+  flex: 1;
+  margin-right: 15px;
+}
+
+/* -- Nav Links -- */
+.navbar-item {
+  display: inline-block;
+  margin: 0px 20px 0px 20px;
+}
+
+.icon {
+  width: 18px;
+  margin: 0px 5px 0px 5px;
+}
+
+/* ---------- Footer ---------- */
+#footer-container {
+  height: 45px;
+  background-color: #ededed;
+  margin: 0;
+  text-align: center;
+  border-top: solid #dbdbdb 1px;
+  position: absolute;
+  width: 100%;
+}
+
+.footer-text {
+  margin: 0;
+  padding-top: 12px;
+  font-size: 12px;
+  color: #7c7c7c;
+}
+
+/* ---------- Resposive Navbar ---------- */
 .navbar {
   overflow: hidden;
 }
 
+/* Hide hamburger button in normal view */
 .navbar .hamburger {
   display: none;
 }
 
-@media screen and (max-width: 850px) {
-  h1 {
-    font-size: 20px;
-  }
-
+@media screen and (max-width: 900px) {
   .navbar a { display: none; }
   .navbar .icon-link { display: none; }
   .navbar a.hamburger {
@@ -203,7 +185,7 @@ a:hover {
     margin-top: -15px;
   }
 
-  /* Social Media Icons */
+  /* -- Social Media Icons -- */
   .responsive .icon-link {
     float: none;
     display: inline-block;
@@ -217,11 +199,10 @@ a:hover {
     width: 30px;
   }
 }
-/* ----- End Responsive Navbar  ----- */
 
-@media (max-width: 550px) {
-  h1 {
-    font-size: 16px;
+@media screen and (max-width: 820px) {
+    .site-title {
+    font-size: 20px;
   }
 }
 
