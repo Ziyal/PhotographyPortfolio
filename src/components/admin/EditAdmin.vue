@@ -1,14 +1,14 @@
 <template>
   <div class="edit-admin">
-    <!--<h2>Edit Album - {{album[0].title}}</h2>-->
+    <h2 class="main-title">Edit Album - <span>{{album[0].title}}</span></h2>
 
     <div class="edit-container">
       <form action="/edit_album" method="post" role="form" @submit.prevent="EditAlbum()">
-        <b-form-input type="text" name="title" v-model="updated_album.title" :value="album[0].title"></b-form-input>
-        <b-form-input type="text" name="description" v-model="updated_album.description" :value="album[0].description"></b-form-input>
-        <b-form-select name="category" v-model="updated_album.category" :options="category_options"></b-form-select>
+        <b-form-input type="text" name="title" v-model="updated_album.title" :value="album[0].title" class="inputs"></b-form-input>
+        <b-form-input type="text" name="description" v-model="updated_album.description" :value="album[0].description" class="inputs"></b-form-input>
+        <b-form-select name="category" v-model="updated_album.category" :options="category_options" class="inputs"></b-form-select>
         <br>
-        <input type="submit" value="Save" class="btn">
+        <input type="submit" value="Save" class="btn btn-secondary btn-block inputs">
       </form>
     </div>
 
@@ -102,13 +102,30 @@ export default {
 
 <style scoped>
 .edit-admin {
-    margin-top: 60px;
+    margin-top: 58px;
     display: block;
+    text-align: center;
+}
+
+.main-title {
+  padding-top: 20px;
+  margin-bottom: 15px;
+}
+
+span {
+  font-size: 32px;
+  font-style: italic;
 }
 
 .edit-container {
   width: 75%;
+  max-width: 600px;
   display: inline-block;
+  padding-bottom: 50px;
+}
+
+.inputs {
+  margin: 5px 0px 5px 0px;
 }
 
 

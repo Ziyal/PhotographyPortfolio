@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .album {
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .title {
@@ -68,10 +68,6 @@ export default {
     height: auto !important;
 }
 
-/* --- Makes images larger on hover --- */
-.images-container .wrapper:hover .image{
-    transform:scale(1.01);
-}
 
 @media (max-width: 9000px) {
   .images-container {

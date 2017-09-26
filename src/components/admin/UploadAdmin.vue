@@ -1,9 +1,10 @@
 <template>
   <div class="edit-admin">
-    <!--<h2>Edit Album - {{album[0].title}}</h2>-->
+    <h2 class="main-title">{{album[0].title}}</h2>
 
-    <dropzone id="myVueDropzone" class="dropzone" :url="serverUrl" v-on:vdropzone-success="uploadSuccess"></dropzone>
-
+    <div class="dropzone-container">
+      <dropzone id="myVueDropzone" class="dropzone" :url="serverUrl" v-on:vdropzone-success="uploadSuccess"></dropzone>
+    </div>
   </div>
 </template>
 
@@ -58,14 +59,24 @@ export default {
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 .edit-admin {
-    margin-top: 60px;
+    padding-top: 60px;
     display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.dropzone-container {
+  margin: 10px 20px 50px 20px;
 }
 
 .dropzone {
-  width: 85%;
-  justify-content: center;
-  margin: 30px;
+  width: 100%;
+  border: 2px dashed lightgrey;
+  border-radius: 5px;
 }
 
 </style>

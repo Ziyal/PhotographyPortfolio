@@ -137,7 +137,8 @@ form .form-btn:hover {
 @media (max-width: 1000px) {
     .right-container {
         padding-right: 0px;
-    }}
+    }
+}
 
 @media (max-width: 700px) {
     .main-continaer {

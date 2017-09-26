@@ -18,4 +18,4 @@ __Built With:__
 * Node.js
 * MongoDB/Mongoose
 
-![Home Page](https://github.com/Ziyal/PhotographyPortfolio/blob/master/screenshots/home.png "Home Page")
+![Home Page](https://github.com/Ziyal/PhotographyPortfolio/blob/master/screenshots/site.gif "Photography Portfolio")

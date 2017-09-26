@@ -2,11 +2,14 @@
   <div class="albums">
     <h2 class="title">Albums</h2>
 
-    <div class="albums">
-        <div v-for="album in all_albums">
+    <div class="container">
+      <ul>
+        <li v-for="album in all_albums">
             <router-link :to="{ name: 'SingleAlbum', params: { id: album._id }}"><h2>{{ album.title }}</h2></router-link>
-        </div>
+        </li>
+      </ul>
     </div>
+    <img src='../assets/images/victoria.jpg' alt="Victoria, BC" class="photo">
 
 
   </div>
@@ -50,6 +53,21 @@ export default {
     font-weight: bold;
     padding-top: 15px;
     margin-bottom: 15px;
+}
+
+/* Header Image */
+.photo {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.container {
+  width: 50%;
+}
+
+ul {
+
 }
 
 </style>
