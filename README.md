@@ -21,7 +21,7 @@ __To-Do:__
 * Add logged in user to session
 * ~~Add create album and list of albums to admin dashboard~~
 * ~~Get photo upload with Dropzone to work~~
-* ~~Make CRUD functions with albums
+* ~~Make CRUD functions with albums~~
 
 __Built With:__
 * Vue.js
