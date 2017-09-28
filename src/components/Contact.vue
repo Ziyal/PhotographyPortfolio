@@ -72,6 +72,7 @@
 .right-container {
     flex-grow: 2;
     margin: 15px;
+    padding-right: 0 auto;
 }
 
 /* Contact form fields */
@@ -126,23 +127,23 @@ form .form-btn:hover {
 /* Make Responsive */
 @media (max-width: 9000px) {
     .right-container {
-        padding-right: 8%;
-    }
-
-    .form-title {
-        margin-left: 10%;
+        margin-right: 8%;
     }
 }
 
 @media (max-width: 1000px) {
     .right-container {
-        padding-right: 0px;
+        margin-right: 0px;
     }
 }
 
 @media (max-width: 700px) {
     .main-continaer {
         flex-direction: column;
+    }
+
+    .form-title {
+        font-size: 20px;
     }
 }
 

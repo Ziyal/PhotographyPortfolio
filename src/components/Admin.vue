@@ -3,6 +3,12 @@
 
     <!-- Login Form -->
     <div class="login-container">
+    <b-alert variant="danger"
+             dismissible
+             :show="loginError"
+             @dismissed="loginError=false">
+      Invalid Email or Password
+    </b-alert>
       <form action="/login" method="post" role="form" @submit.prevent="sub()">
         <b-form-input type="email" name="email" v-model="user.email" placeholder="Email"></b-form-input>
         <b-form-input type="password" name="password" v-model="user.password" placeholder="Password"></b-form-input>
@@ -11,12 +17,6 @@
     </div>
 
     <!-- Displays login error -->
-    <b-alert variant="danger"
-             dismissible
-             :show="loginError"
-             @dismissed="loginError=false">
-      Invalid Email or Password
-    </b-alert>
 
   </div>
 </template>
@@ -61,13 +61,14 @@ export default {
 
 <style scoped>
 .admin {
-  display: block;
-  margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
 }
 
 .login-container {
-  margin-top: 80px;
-  margin-bottom: 35px;
+  width: 50%;
+  max-width: 300px;
+  margin: 20px;
   display: inline-block;
 }
 

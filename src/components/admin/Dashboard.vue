@@ -136,6 +136,7 @@ export default {
 
 .create-album-container {
   margin: 25px;
+  // width: 60%;
 }
 
 .inputs {

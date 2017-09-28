@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
 
     <!-- Header and Navbar -->
     <div class="header-container">
@@ -77,6 +77,16 @@ a {
 a:hover {
   color: grey;
   text-decoration: none;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+router-view {
+  flex: 1;
 }
 
 /************* header-container *************/
