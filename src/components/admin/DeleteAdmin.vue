@@ -45,7 +45,8 @@ export default {
             // Sends album data to server to delete
             axios.post('http://localhost:3000/delete_album/' + album_id)
             .then(function() {
-                console.log("Delete Album successful")
+                console.log("Delete Album successful");
+                window.location.href = '#/dashboard';
             })
             .catch(err => console.log(err))
         }

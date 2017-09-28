@@ -6,13 +6,26 @@ I wanted to create a project where I could do a lot of pretty front-end stuff wi
 
 On the back end I have a Express server with a MongoDB database. It's there were I'm able to login, create and modify albums, add photos to the DB, and query for albums and photos.
 
+__Built With:__
+* Vue.js
+* Express.js
+* Node.js
+* MongoDB/Mongoose
+
+__Utilizes:__
+* Dropzone for photo uploading
+* Formspree for the contact form
+* Boostrap-Vue for styling
+
+![Home Page](https://github.com/Ziyal/PhotographyPortfolio/blob/master/screenshots/site.gif "Photography Portfolio")
+
 __To-Do:__
 * ~~Create home page design with categories~~
 * ~~Make CSS to display photos from albums/categories~~
 * ~~Create About Me page with images and bio~~
 * ~~Add contact form~~
 * ~~Make navbar responsive~~
-* Refresh pages after form submitted
+* ~~Refresh pages after form submitted~~
 * ~~Finish dashboard styling~~
 * ~~Finish albums styling~~
 * ~~Tweak contact form CSS~~
@@ -22,11 +35,4 @@ __To-Do:__
 * ~~Add create album and list of albums to admin dashboard~~
 * ~~Get photo upload with Dropzone to work~~
 * ~~Make CRUD functions with albums~~
-
-__Built With:__
-* Vue.js
-* Express.js
-* Node.js
-* MongoDB/Mongoose
-
-![Home Page](https://github.com/Ziyal/PhotographyPortfolio/blob/master/screenshots/site.gif "Photography Portfolio")
+* Add validation errors to create album
