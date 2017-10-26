@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const multer = require('multer');
+const cookieparser = require('cookie-parser');
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -17,7 +18,7 @@ const upload = multer({ storage: storage });
 // ******************************************
 // **************** MONGOOSE ****************
 
-const  mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // Set up database
 mongoose.Promise = global.Promise;
 var promise = mongoose.connect('mongodb://localhost/SCPhotography', {
@@ -62,7 +63,9 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '..')));
 app.use(bodyParser.json());
-app.use(session({secret: 'itsasecret'})); 
+
+app.use(session({secret: 'itsasecret', cookie: { maxAge: 60000 }})); 
+app.use(cookieparser())
 
 // Sets middlewear to connect Vue to Express
 app.use(function(req, res, next) {
@@ -81,20 +84,31 @@ var fs = require("fs");
 app.post('/login', function(req, res) {
   // console.log("Server HIT!!!!!!!!!!!!!!!!!!!!");
 
-  Users.findOne({email: req.body.email}, function(err, user) {   
+  Users.findOne({ email: req.body.email }, function(err, user) {  
+    // Checks if user was found
     if(err || user === null) {
       res.status(500).json({'error': "Invalid Login"})
     } else {
+      // Checks if passwords match
         if(req.body.password === user.password) {
-            req.session.user = user;
+            req.session.user_id = user._id;
+            console.log("Login session: ", req.session.user_id)
             console.log("Passwords Match!!!!!!")
             res.json(true)
         } else {
-            console.log("Incorect password")
+            console.log("Incorrect password")
             res.status(500).json({'error': "Invalid Login"})
         }
     }    
   });
+});
+
+// Checks if user is logged in to session
+app.get('/check_status', function(req, res) {
+  var user = req.session.user_id;
+  console.log("***** Check Status *****")
+  console.log("Session: ", user)
+  // res.json({user: req.session.user});
 });
 
 // Finds all images for selected category
@@ -138,6 +152,9 @@ app.post("/find_album/", function(req, res) {
 // Remove album from DB
 // from Dashboard
 app.post("/delete_album/:id", function(req, res) {
+
+  // Photos.remove({album_id: req.params.id})
+    
   Albums.remove({_id: req.params.id})
     .then(album => {
       res.json(album)
@@ -187,16 +204,6 @@ app.post("/find_photos", function(req, res) {
       console.log(error)
     })
 });
-
-// Checks if user is logged in to session
-app.get('/check_status', function(req, res) {
-  res.json({user: req.session.user});
-});
-
-  // var user = new Users({email: "wintermist3@gmail.com", password: "password", name: "Sereina"})
-  // user.save(function(err)
-  // });
-
 
 app.get('*', function (req, res) {
   return res.sendFile('../index.html');

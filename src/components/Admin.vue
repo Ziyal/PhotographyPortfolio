@@ -45,9 +45,7 @@ export default {
         
         axios.post('http://localhost:3000/login', user)
           .then(function() {
-            this.$router.push({ path: decodeURIComponent(this.$route.query.redirect || '/')})
-            // router.go('/dashboard')
-            // this.$router.push({path: "/dashboard"})
+            window.location.href = '#/dashboard';
           })
           .catch((err) => {
             console.log(err);

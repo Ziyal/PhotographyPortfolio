@@ -39,7 +39,7 @@
 .main-container {
     margin: 15px 15px 0px 15px;
     display: flex;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 /* Header Image */

@@ -75,11 +75,13 @@ export default {
             description: { label: "Description" },
             category: { label: "Category" },
             actions: { label: "Actions" }
-          }
+          },
+          status: false
         }
     },
     created: function() {
       this.DisplayAlbums();
+      this.CheckStatus();
     },
     methods: {
       // Retrieves all albums to display
@@ -103,11 +105,19 @@ export default {
         axios.post('http://localhost:3000/create_album', album)
           .then(function() {
             console.log("CreateAlbum success!!!!!!!!!!!!")
+            window.location.href = '#/dashboard';
           })
           .catch(err => console.log(err))
 
-          location.reload()
       },
+
+      CheckStatus() {
+        axios.get('http://localhost:3000/check_status')
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch(err => console.log(err))
+      }
     }
 }
 

@@ -3,7 +3,7 @@
     <h2 class="main-title">{{album[0].title}}</h2>
 
     <div class="dropzone-container">
-      <dropzone id="myVueDropzone" class="dropzone" :url="serverUrl" v-on:vdropzone-success="uploadSuccess"></dropzone>
+      <dropzone id="myVueDropzone" class="dropzone" :url="serverUrl" :parallelUploads="2" v-on:vdropzone-success="uploadSuccess"></dropzone>
     </div>
   </div>
 </template>
